@@ -1,0 +1,56 @@
+#site-footer {
+  padding: 100px 0;
+  margin-top: 0;
+}
+
+.yolo-footer-widget {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+
+  img {
+    width: auto;
+    max-width: 100%;
+    margin-bottom: 1em;
+  }
+
+  .widget {
+    margin-top: 0;
+
+    .widget-title {
+      font-size: 1em;
+      margin-bottom: 1.5rem;
+    } 
+  }
+
+  .column-one {
+    width: 300px; 
+    max-width: 30%;
+  }
+
+  .column-two {
+    display: flex;
+    justify-content: end;
+    width: 65%;
+    max-width: 100%;
+  }
+
+  .widget {
+    color: #9b9c9f;
+
+    p,
+    li.menu-item > a {
+      color: #9b9c9f;
+      font-size: .9em;
+    }
+      
+    &:not(:last-child) {
+      margin-right: 40px;
+    }
+
+    &.widget_nav_menu {
+      text-align: center;
+    }
+  }
+}

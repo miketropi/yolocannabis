@@ -24,7 +24,8 @@
 
 function YoloEnqueueScripts() {
   $theme = wp_get_theme();
-  $parentHandle = 'chaplin-style';;
+  $parentHandle = 'chaplin-style';
+  $randomVersion = rand(0, 99999); // avoid browser caching static file
 
   # Yolo childtheme
   wp_enqueue_style( 
@@ -32,6 +33,21 @@ function YoloEnqueueScripts() {
     get_stylesheet_uri(),
     [$parentHandle], 
     wp_get_theme()->get('Version')
+  );
+
+  wp_enqueue_style(
+    'yolo',
+    YOLO_URI . '/dist/css/frontend-yolo.bundle.css',
+    false,
+    $random // wp_get_theme()->get('Version')
+  );
+
+  wp_enqueue_script(
+    'yolo',
+    YOLO_URI . '/dist/frontend-yolo.bundle.js',
+    ['jquery'],
+    $random, // wp_get_theme()->get('Version'),
+    true
   );
 }
 
