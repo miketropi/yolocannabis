@@ -39,16 +39,38 @@ function YoloEnqueueScripts() {
     'yolo',
     YOLO_URI . '/dist/css/frontend-yolo.bundle.css',
     false,
-    $random // wp_get_theme()->get('Version')
+    $randomVersion // wp_get_theme()->get('Version')
   );
 
   wp_enqueue_script(
     'yolo',
     YOLO_URI . '/dist/frontend-yolo.bundle.js',
     ['jquery'],
-    $random, // wp_get_theme()->get('Version'),
+    $randomVersion, // wp_get_theme()->get('Version'),
     true
   );
 }
 
 add_action('wp_enqueue_scripts', 'YoloEnqueueScripts');
+
+function yolo_sidebar_registration() {
+
+  // Arguments used in all register_sidebar() calls
+  $shared_args = [
+    'before_title'  => '<h2 class="widget-title subheading heading-size-3">',
+    'after_title'   => '</h2>',
+    'before_widget' => '<div class="widget %2$s"><div class="widget-content">',
+    'after_widget'  => '</div></div>',
+  ];
+
+  // Footer copyright
+  register_sidebar( array_merge(
+    $shared_args, [
+      'name' 		=> __( 'Footer Copyright', 'yolo' ),
+      'id' 			=> 'footer-copyright',
+      'description' 	=> __( 'Widgets in this area will be displayed in the bottom of footer.', 'chaplin' ),
+    ] )
+  );
+}
+
+add_action( 'widgets_init', 'yolo_sidebar_registration' );

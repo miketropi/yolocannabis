@@ -21,6 +21,13 @@ if ( ! is_page_template( $only_content_templates ) || $show_footer ) : ?>
         <?php endif; ?>
       </div>
     </div>
+    <?php if ( is_active_sidebar( 'footer-two' ) ) : ?>
+    <div class="section-inner">
+      <div class="yolo-copyright">
+        <?php dynamic_sidebar( 'footer-copyright' ); ?>
+      </div>
+    </div>
+    <?php endif; ?>
   </footer><!-- #site-footer -->
   <?php 
 endif;
