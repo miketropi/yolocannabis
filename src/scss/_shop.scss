@@ -1,0 +1,42 @@
+.woocommerce ul.products li.product {
+    .woocommerce-loop-product__thumb {
+        min-height: 484px;
+        display: flex;
+        align-items: flex-end;
+        justify-content: center;
+        max-width: 80%;
+        margin: 0 auto 20px;
+    }
+    .woocommerce-loop-product__info {
+        min-height: 80px;
+    }
+    .woocommerce-loop-product__title {
+        padding: 0;
+    }
+    .woocommerce-loop-product__cat {
+        font-family: "Ubuntu", Sans-serif;
+        font-size: 16px;
+        line-height: 24px;
+        color: #482ee6;
+        a {
+            color: inherit;
+            &:hover {
+                color: #f6b216;
+            }
+        }
+    }
+    .button {
+        display: inline-block;
+        min-width: 240px;
+        margin: 0;
+        text-decoration: none;
+        -webkit-transition: all .3s;
+        transition: all .3s;
+    }
+
+    @media(max-width: $break-sm - 0.02) {
+        .woocommerce-loop-product__thumb {
+            min-height: unset;
+        }
+    }
+} 

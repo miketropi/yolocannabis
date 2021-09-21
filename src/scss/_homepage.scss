@@ -1,0 +1,104 @@
+.hero-section {
+    .elementor-widget-wp-widget-nav_menu {
+        position: fixed;
+        top: 62%;
+        right: calc(50% - 645px);
+        width: auto !important;
+        z-index: 999;
+        @media(max-width: 1320px) {
+            top: 50%;
+            right: 15px;
+        }
+        ul.menu {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            li {
+                margin: 0;
+                padding: 0;
+                a {
+                    font-size: 0;
+                    &:after {
+                        content: "";
+                        display: inline-block;
+                        width: 7px;
+                        height: 20px;
+                        background: #523e16;
+                        border-radius: 5px;
+                    }
+                }
+                &.current-menu-item a:after {
+                    background: #fab515;
+                }
+            }
+        }
+    }
+
+    @media(max-width: $break-sm - 0.02) {
+        .elementor-widget-text-editor {
+            max-width: 430px;
+            margin: 0 auto;
+            br {
+                display: none;
+            }
+        }
+    }
+}
+
+.about-section {
+    @media(max-width: $break-sm - 0.02) {
+        .elementor-widget-text-editor {
+            max-width: 550px;
+            margin: 0 auto;
+            br {
+                display: none;
+            }
+        }
+    }
+}
+
+.merch-section {
+    @media(max-width: $break-sm - 0.02) {
+        .elementor-widget-text-editor {
+            max-width: 580px;
+            margin: 0 auto;
+            br {
+                display: none;
+            }
+        }
+        .elementor-widget-image {
+            max-width: 33% !important;
+            &.first-item {
+                max-width: 38% !important;
+            }
+            &.center-item {
+                max-width: 29% !important;
+                .elementor-widget-container {
+                    margin: 0 -20% 0 -21% !important;
+                }
+            }
+            img {
+                max-width: 100% !important;
+            }
+        }
+    }
+}
+
+.subscrible-section {
+    .elementor-widget-form,
+    .elementor-widget-text-editor {
+        max-width: 510px;
+        margin-left: auto;
+    }
+    .elementor-form-spinner {
+        position: absolute;
+        top: 4px;
+        left: 8px;
+    }
+
+    @media(max-width: $break-sm - 0.02) {
+        .elementor-container {
+            max-width: 510px !important;
+        }
+    }
+}

@@ -74,3 +74,11 @@ function yolo_sidebar_registration() {
 }
 
 add_action( 'widgets_init', 'yolo_sidebar_registration' );
+
+
+
+function yolo_add_woocommerce_support() {
+  // Theme support woocommerce
+	add_theme_support( 'woocommerce' );
+}
+add_action( 'after_setup_theme', 'yolo_add_woocommerce_support' );

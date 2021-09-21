@@ -1,0 +1,63 @@
+a {
+    text-decoration: none;
+    -webkit-transition: all .3s;
+    transition: all .3s;
+}
+.btn-primary .elementor-button {
+    min-width: 240px;
+}
+
+.elementor-widget-text-editor {
+    .elementor-text-editor,
+    .elementor-widget-container {
+        > * {
+            margin-bottom: 40px;
+            &:last-child {
+                margin-bottom: 0;
+            }
+        }
+    }
+
+    @media(max-width: $break-tl - 0.02) {
+        .elementor-text-editor,
+        .elementor-widget-container {
+            > * {
+                margin-bottom: 20px;
+            }
+        }
+    }
+    @media(max-width: $break-sm - 0.02) {
+        .elementor-text-editor,
+        .elementor-widget-container {
+            > * {
+                margin-bottom: 15px;
+            }
+        }
+    }
+}
+
+.subscrible-form .elementor-form {
+    position: relative; 
+    margin: 0;
+    .elementor-message {
+        font-size: 13px;
+    }
+    .elementor-field-group-email {
+        width: calc(100% - 48px);
+        input {
+            padding: 5px 20px;
+            border-color: #20195F;
+        }
+    }
+    .elementor-field-type-submit {
+        width: 48px;
+        height: 40px;
+        .elementor-button {
+            padding: 0;
+        }
+        svg { 
+            max-width: unset;
+            width: 28px;
+        }
+    }
+}
