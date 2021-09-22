@@ -29,31 +29,43 @@ if ( empty( $product ) || ! $product->is_visible() ) {
     <div class="woocommerce-loop-product__thumb">
         <?php 
             /**
+             * Hook: woocommerce_loop_product_link_open.
+             *
+             * @hooked woocommerce_template_loop_product_link_open - 10
+             */
+            do_action( 'woocommerce_loop_product_link_open' );
+
+            /**
              * Hook: woocommerce_loop_product_thumbnail.
              *
              * @hooked woocommerce_template_loop_product_thumbnail - 10
              */
             do_action( 'woocommerce_loop_product_thumbnail' );
+
+            /**
+             * Hook: woocommerce_loop_product_link_close.
+             *
+             * @hooked woocommerce_template_loop_product_link_close - 10
+             */
+            do_action( 'woocommerce_loop_product_link_close' );
         ?>
     </div>
     
-    <div class="woocommerce-loop-product__info">
-        <?php 
-            /**
-             * Hook: woocommerce_shop_loop_item_title.
-             *
-             * @hooked woocommerce_template_loop_product_title - 10
-             */
-            do_action( 'woocommerce_shop_loop_item_title' );
+    <?php 
+        /**
+         * Hook: woocommerce_shop_loop_item_title.
+         *
+         * @hooked woocommerce_template_loop_product_title - 10
+         */
+        do_action( 'woocommerce_shop_loop_item_title' );
 
-            /**
-             * Hook: woocommerce_shop_loop_item_category.
-             *
-             * @hooked woocommerce_template_loop_category - 10
-             */
-            do_action( 'woocommerce_shop_loop_item_category' );
-        ?>
-    </div>
+        /**
+         * Hook: woocommerce_shop_loop_item_category.
+         *
+         * @hooked woocommerce_template_loop_category - 10
+         */
+        do_action( 'woocommerce_shop_loop_item_category' );
+    ?>
     <?php
 	/**
 	 * Hook: woocommerce_after_shop_loop_item_title.
@@ -64,14 +76,4 @@ if ( empty( $product ) || ! $product->is_visible() ) {
 	//do_action( 'woocommerce_after_shop_loop_item_title' );
 
 	?>
-    <div class="woocommerce-loop-product__action">
-        <?php 
-            /**
-             * Hook: woocommerce_loop_add_to_cart.
-             *
-             * @hooked woocommerce_template_loop_add_to_cart - 10
-             */
-            do_action( 'woocommerce_loop_add_to_cart' );
-        ?>
-    </div>
 </li>

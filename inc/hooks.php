@@ -16,5 +16,9 @@ function woocommerce_template_loop_category() {
     the_terms( get_the_ID(), 'product_cat', '<div class="woocommerce-loop-product__cat">', ', ' , '</div>' );
 }
 
+/**
+ * Single Product
+ */
 
+remove_action( 'woocommerce_before_main_content', 'woocommerce_breadcrumb', 20 );
 

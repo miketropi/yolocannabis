@@ -7,9 +7,6 @@
         max-width: 80%;
         margin: 0 auto 20px;
     }
-    .woocommerce-loop-product__info {
-        min-height: 80px;
-    }
     .woocommerce-loop-product__title {
         padding: 0;
     }
@@ -25,14 +22,6 @@
             }
         }
     }
-    .button {
-        display: inline-block;
-        min-width: 240px;
-        margin: 0;
-        text-decoration: none;
-        -webkit-transition: all .3s;
-        transition: all .3s;
-    }
 
     @media(max-width: $break-sm - 0.02) {
         .woocommerce-loop-product__thumb {
@@ -40,3 +29,9 @@
         }
     }
 } 
+
+.single-product {
+    .site-main {
+        padding-top: 145px;
+    }
+}

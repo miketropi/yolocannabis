@@ -21,8 +21,8 @@
                     &:after {
                         content: "";
                         display: inline-block;
-                        width: 7px;
-                        height: 20px;
+                        width: 4px;
+                        height: 22px;
                         background: #523e16;
                         border-radius: 5px;
                     }
@@ -32,6 +32,11 @@
                 }
             }
         }
+    }
+
+    .elementor-slide-description b {
+        font-weight: 400;
+        color: $main-color;
     }
 
     @media(max-width: $break-sm - 0.02) {
