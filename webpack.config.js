@@ -2,7 +2,7 @@
  * Webpack config 
  */
 
-const Webpack = require('webpack');
+const webpack = require('webpack');
 const path = require('path');
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 
@@ -25,20 +25,21 @@ module.exports = {
           "sass-loader",
         ]
       },
-      {
-        test: /\.(png|jpe?g|gif|svg)$/i,
-        use: {
-          loader: 'file-loader',
-          options: {
-            publicPath: '../'
-          }
-        }
-      },
+      // {
+      //   test: /\.(png|jpe?g|gif|svg)$/i,
+      //   exclude: /(node_modules|bower_components)/,
+      //   use: {
+      //     loader: 'file-loader',
+      //     options: {
+      //       publicPath: '../',
+      //     }
+      //   }
+      // },
       {
         test: /\.m?js$/,
         exclude: /(node_modules|bower_components)/,
         use: {
-          loader: 'babel-loader',
+          loader: 'babel-loader', 
           options: {
             presets: ['@babel/preset-env']
           }
@@ -49,6 +50,9 @@ module.exports = {
   plugins: [
     new MiniCssExtractPlugin({
       filename: 'css/[name]-yolo.bundle.css',
-    })
+    }),
+    new webpack.ProvidePlugin( {
+      Promise: 'es6-promise-promise', // works as expected
+    } )
   ]
 }
