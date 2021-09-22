@@ -21,4 +21,14 @@ function woocommerce_template_loop_category() {
  */
 
 remove_action( 'woocommerce_before_main_content', 'woocommerce_breadcrumb', 20 );
+remove_action( 'woocommerce_after_single_product_summary', 'woocommerce_output_related_products', 20 );
 
+
+add_filter( 'woocommerce_upsell_display_args', 'wc_change_number_related_products', 20 );
+
+function wc_change_number_related_products( $args ) {
+    // Change number of upsells output
+    $args['posts_per_page'] = 3;
+    $args['columns'] = 3; //change number of upsells here
+    return $args;
+}

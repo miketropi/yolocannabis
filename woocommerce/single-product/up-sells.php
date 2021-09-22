@@ -23,7 +23,7 @@ if ( $upsells ) : ?>
 
 	<section class="up-sells upsells products">
 		<?php
-		$heading = apply_filters( 'woocommerce_product_upsells_products_heading', __( 'You may also like&hellip;', 'woocommerce' ) );
+		$heading = apply_filters( 'woocommerce_product_upsells_products_heading', __( 'You may also like', 'woocommerce' ) );
 
 		if ( $heading ) :
 			?>
@@ -45,6 +45,10 @@ if ( $upsells ) : ?>
 			<?php endforeach; ?>
 
 		<?php woocommerce_product_loop_end(); ?>
+
+        <div class="see-all-products">
+            <a class="see-all-products-btn" href="#">See all products</a>
+        </div>
 
 	</section>
 

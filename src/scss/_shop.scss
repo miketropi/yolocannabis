@@ -1,4 +1,5 @@
 .woocommerce ul.products li.product {
+    text-align: center;
     .woocommerce-loop-product__thumb {
         min-height: 484px;
         display: flex;
@@ -8,7 +9,17 @@
         margin: 0 auto 20px;
     }
     .woocommerce-loop-product__title {
+        font-family: "Ubuntu", Sans-serif;
+        font-size: 18px;
+        font-weight: 500;
+        line-height: 24px;
         padding: 0;
+        a {
+            color: #fff;
+            &:hover {
+                color: $main-color;
+            }
+        }
     }
     .woocommerce-loop-product__cat {
         font-family: "Ubuntu", Sans-serif;
@@ -34,5 +45,48 @@
     .site-main {
         padding-top: 145px;
         background-image: url(../../images/singlepage-bg.jpg);
+
+    }
+    div.product {
+        div.images {
+            float: right;
+            max-width: 450px;
+        }
+        div.summary {
+            float: left;
+        }
+    }
+    .up-sells {
+        > h2 {
+            font-family: "Exo 2", Sans-serif;
+            font-size: 44px;
+            font-weight: 700;
+            line-height: 50px;
+            text-transform: uppercase;
+            text-align: center;
+            margin-bottom: 40px;
+        }
+    }
+    .see-all-products {
+        text-align: center;
+        a {
+            display: inline-block;
+            min-width: 240px;
+            font-family: "Ubuntu", Sans-serif;
+            font-size: 18px;
+            font-weight: 500;
+            line-height: 20px;
+            color: $secondary-color;
+            background-color: #0F1024;
+            border-style: solid;
+            border-width: 2px 2px 2px 2px;
+            border-color: $secondary-color;
+            border-radius: 10px 10px 10px 10px;
+            padding: 8px 15px 8px 15px;
+            &:hover {
+                color: #fff;
+                background-color: $secondary-color;
+            }
+        }
     }
 }
