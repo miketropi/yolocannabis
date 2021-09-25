@@ -47,7 +47,7 @@ if ( $upsells ) : ?>
 		<?php woocommerce_product_loop_end(); ?>
 
         <div class="see-all-products">
-            <a class="see-all-products-btn" href="#">See all products</a>
+            <a class="see-all-products-btn" href="<?php echo get_site_url() . '/products' ?>">See all products</a>
         </div>
 
 	</section>

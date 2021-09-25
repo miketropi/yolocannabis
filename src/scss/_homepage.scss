@@ -34,12 +34,49 @@
         }
     }
 
-    .elementor-slide-description b {
-        font-weight: 400;
-        color: $main-color;
+    .swiper-slide-contents {
+        .elementor-slide-description b {
+            font-weight: 400;
+            color: $main-color;
+        }
+        .elementor-slide-button {
+            min-width: 240px;
+            padding: 8px 15px;
+        }
+    }
+    
+    .swiper-pagination-bullets {
+        .swiper-pagination-bullet {
+            width: 70px !important;
+            height: 4px !important;
+            border-radius: 4px;
+            background-color: #382b13;
+            opacity: 1;
+        }
+    }
+
+    @media(max-width: $break-tl - 0.02) {
+        .swiper-slide-contents {
+            .elementor-slide-heading {
+                margin-bottom: 40px !important;
+            }
+            .elementor-slide-description {
+                margin-bottom: 90px !important;
+            }
+            
+        }
     }
 
     @media(max-width: $break-sm - 0.02) {
+        .swiper-slide-contents {
+            .elementor-slide-heading {
+                margin-bottom: 30px !important;
+            }
+            .elementor-slide-description {
+                margin-bottom: 60px !important;
+            }
+            
+        }
         .elementor-widget-text-editor {
             max-width: 430px;
             margin: 0 auto;
@@ -85,25 +122,6 @@
             img {
                 max-width: 100% !important;
             }
-        }
-    }
-}
-
-.subscrible-section {
-    .elementor-widget-form,
-    .elementor-widget-text-editor {
-        max-width: 510px;
-        margin-left: auto;
-    }
-    .elementor-form-spinner {
-        position: absolute;
-        top: 4px;
-        left: 8px;
-    }
-
-    @media(max-width: $break-sm - 0.02) {
-        .elementor-container {
-            max-width: 510px !important;
         }
     }
 }

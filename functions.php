@@ -75,14 +75,6 @@ function yolo_sidebar_registration() {
 
 add_action( 'widgets_init', 'yolo_sidebar_registration' );
 
-
-function webp_upload_mimes($existing_mimes) {
-  $existing_mimes['webp'] = 'image/webp';
-  return $existing_mimes;
-}
-add_filter('mime_types', 'webp_upload_mimes');
-
-
 function yolo_add_woocommerce_support() {
   // Theme support woocommerce
 	add_theme_support( 'woocommerce' );

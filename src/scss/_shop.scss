@@ -1,12 +1,14 @@
 .woocommerce ul.products li.product {
     text-align: center;
     .woocommerce-loop-product__thumb {
-        min-height: 484px;
         display: flex;
         align-items: flex-end;
         justify-content: center;
         max-width: 80%;
         margin: 0 auto 20px;
+        img {
+            margin: 0;
+        }
     }
     .woocommerce-loop-product__title {
         font-family: "Ubuntu", Sans-serif;
@@ -33,30 +35,150 @@
             }
         }
     }
-
-    @media(max-width: $break-sm - 0.02) {
-        .woocommerce-loop-product__thumb {
-            min-height: unset;
-        }
-    }
 } 
 
 .single-product {
     .site-main {
         padding-top: 145px;
-        background-image: url(../../images/singlepage-bg.jpg);
+        background-image: url(../../images/singlepage-bg.jpg); 
 
     }
     div.product {
-        div.images {
-            float: right;
-            max-width: 450px;
+        .product-header {
+            display: flex;
+            align-items: flex-end;
+            flex-direction: row-reverse;
+            padding: 0 0 90px;
+            .entry-featured {
+                width: 50%;
+                div.images {
+                    width: 100%;
+                    float: none;
+                    margin: 0;
+                    img {
+                        max-width: 320px;
+                        margin: 0 auto;
+                    }
+                }
+                .product-field {
+                    max-width: 340px;
+                    margin: 60px auto 0;
+                    &.custom-select {
+                        position: relative;
+                        font-family: "Exo 2",Sans-serif;
+                        font-size: 18px;
+                        font-weight: 400;
+                        line-height: 30px;
+                        color: #fff;
+                        cursor: pointer;
+                        select {
+                            display: none;
+                        }
+                        .select-selected {
+                            background-color: #0f1024;
+                            background-image: url(../../images/arrow.png); 
+                            background-repeat: no-repeat;
+                            background-position: right 15px center;
+                            padding: 5px 20px;
+                            border-radius: 10px;
+                            &.select-arrow-active {
+                                border-radius: 10px 10px 0 0;
+                            }
+                        }
+                        .select-items {
+                            position: absolute;
+                            top: 100%;
+                            left: 0;
+                            right: 0;
+                            z-index: 99;
+                            background-color: #0f1024;
+                            padding-bottom: 12px;
+                            border-radius: 0 0 10px 10px;
+                            div {
+                                padding: 2px 20px;
+                                &:hover,
+                                &.same-as-selected {
+                                    background-color: #442bd7;
+                                }
+                            }
+                        }
+                        .select-hide {
+                            display: none;
+                        }
+                    }
+                    select {
+                        width: 100%;
+                        font-family: "Exo 2",Sans-serif;
+                        font-size: 18px;
+                        font-weight: 400;
+                        line-height: 30px;
+                        color: #fff;
+                        background-color: #0f1024;
+                        padding: 4px 20px;
+                        border-radius: 10px;
+                    }
+                }
+            }
+            
+            div.summary {
+                width: 50%;
+                float: none;
+                margin-bottom: 40px;
+                .product_title {
+                    font-family: "Exo 2",Sans-serif;
+                    font-size: 50px;
+                    font-weight: 700;
+                    line-height: 50px;
+                    text-transform: uppercase;
+                    margin: 0 0 50px;
+                }
+                .woocommerce-product-details__short-description {
+                    font-family: "Exo 2",Sans-serif;
+                    font-size: 18px; 
+                    line-height: 30px;
+                    > *:last-child {
+                        margin-bottom: 0;
+                    }
+                }
+                .product-metas {
+                    list-style: none;
+                    margin: 90px 0 0;
+                    padding: 0;
+                    display: flex;
+                    justify-content: space-between;
+                    max-width: 600px;
+                    li {
+                        margin: 0;
+                        padding: 0;
+                        text-align: center;
+                        .meta-title {
+                            font-family: "Exo 2",Sans-serif;
+                            font-size: 18px;
+                            font-weight: 700;
+                            line-height: 30px;
+                            color: $main-color;
+                            margin: 0;
+                        }
+                        .meta-value {
+                            font-family: "Exo 2",Sans-serif;
+                            font-size: 36px;
+                            font-weight: 700;
+                            line-height: 30px;
+                            color: $secondary-color;
+                            .unit {
+                                font-size: 20px;
+                                font-weight: 400;
+                            }
+                        }
+                    }
+                }
+            }
         }
-        div.summary {
-            float: left;
-        }
+        
     }
     .up-sells {
+        padding: 90px 0 180px;
+
         > h2 {
             font-family: "Exo 2", Sans-serif;
             font-size: 44px;
@@ -64,11 +186,23 @@
             line-height: 50px;
             text-transform: uppercase;
             text-align: center;
-            margin-bottom: 40px;
+            margin: 0 0 50px;
+        }
+        ul.products {
+            display: flex;
+            flex-wrap: wrap;
+            margin: 0 -15px;
+            li.product {
+                float: none;
+                width: 33.33%;
+                margin: 0 0 40px;
+                padding: 0 15px
+            }
         }
     }
     .see-all-products {
         text-align: center;
+        margin-top: 20px;
         a {
             display: inline-block;
             min-width: 240px;
@@ -87,6 +221,119 @@
                 color: #fff;
                 background-color: $secondary-color;
             }
+        }
+    }
+
+    @media( max-width: $break-sm-tl - 0.02 ) {
+        div.product {
+            .product-header {
+                flex-direction: column;
+                align-items: flex-start;
+                padding-bottom: 60px;
+                .entry-featured {
+                    width: 100%;
+                    margin-bottom: 60px;
+                }
+                div.summary {
+                    width: 100%;
+                    max-width: 620px;
+                    text-align: center;
+                    margin: 0 auto;
+                    .product_title {
+                        margin-bottom: 40px;
+                    }
+                    .product-metas {
+                        max-width: 100%;
+                        margin-top: 60px;
+                    }
+                }
+            }
+            .up-sells {
+                padding: 60px 0 120px;
+                >h2 {
+                    margin-bottom: 40px;
+                }
+            }
+        }
+    }
+
+    @media( max-width: $break-sm - 0.02 ) {
+        div.product {
+            .product-header {
+                padding-bottom: 40px;
+                .entry-featured {
+                    width: 100%;
+                    margin-bottom: 40px;
+                    .product-field {
+                        margin-top: 40px;
+                    }
+                }
+                div.summary {
+                    max-width: 560px;
+                    .product_title {
+                        font-size: 36px;
+                        margin-bottom: 30px;
+                    }
+                    .woocommerce-product-details__short-description {
+                        font-size: 16px;
+                    }
+                    .product-metas {
+                        margin-top: 40px;
+                        li {
+                            .meta-title {
+                                font-size: 16px;
+                            }
+                            .meta-value {
+                                font-size: 32px;
+                                .unit {
+                                    font-size: 18px;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+            .up-sells {
+                padding: 40px 0 90px;
+                >h2 {
+                    font-size: 36px;
+                    margin-bottom: 30px;
+                }
+                ul.products li.product {
+                    width: 100%;
+                }
+            }
+        }
+    }
+
+    @media( max-width: $break-xs - 0.02 ) {
+        div.product .product-header {
+            padding-bottom: 10px;
+            div.summary .product-metas {
+                flex-wrap: wrap;
+                li {
+                    width: 50%;
+                    margin-bottom: 30px;
+                }
+            }
+        }
+    }
+}
+
+.products-hero-ss {
+    .elementor-widget-text-editor {
+        max-width: 540px;
+    }
+
+    @media(max-width: $break-tl - 0.02) {
+        .elementor-widget-text-editor {
+            margin: 0 auto;
+        }
+    }
+
+    @media(max-width: $break-sm - 0.02) {
+        .elementor-widget-text-editor {
+            max-width: 480px;
         }
     }
 }

@@ -8,6 +8,20 @@ a {
     -webkit-transition: all .3s;
     transition: all .3s;
 }
+input, select, textarea {
+    outline: none;
+}
+select {
+    -webkit-appearance: none;
+    appearance: none;
+    color: #fff;
+    background-color: #080913;
+    background-image: url(../../images/arrow.png); 
+    background-repeat: no-repeat;
+    background-position: right 15px center;
+    
+}
+
 .btn-primary .elementor-button {
     min-width: 240px;
 }
@@ -41,6 +55,13 @@ a {
     }
 }
 
+.elementor-widget-form form {
+    margin: 0;
+    .elementor-field-type-submit button {
+        text-decoration: none;
+    }
+}
+
 .subscrible-form .elementor-form {
     position: relative; 
     margin: 0;
@@ -63,6 +84,19 @@ a {
         svg { 
             max-width: unset;
             width: 28px;
+        }
+    }
+}
+
+.contact-form .elementor-form {
+    .elementor-message {
+        font-size: 13px;
+        text-align: center;
+    }
+    .elementor-field-type-submit {
+        margin-top: 20px;
+        button {
+            min-width: 240px;
         }
     }
 }
