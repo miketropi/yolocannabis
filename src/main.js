@@ -147,6 +147,7 @@ import {FooterWidgetToggleMobile} from './footer-widget-sidebar'
     CustomSelectBox();
     AnchorActiveMenuItemScroll();
     BackToTop();
+    
   });
 
   jQuery(window).on('resize', function() {

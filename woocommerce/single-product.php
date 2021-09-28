@@ -34,7 +34,23 @@ get_header( 'shop' ); ?>
             <?php while ( have_posts() ) : ?>
                 <?php the_post(); ?>
 
-                <?php wc_get_template_part( 'content', 'single-product' ); ?>
+                <?php 
+					/*$terms = get_the_terms( get_the_ID() , 'product_cat' );
+					if ( ! empty( $terms ) && ! is_wp_error( $terms ) ) {
+						$cats = wp_list_pluck( $terms, 'slug' );
+					}
+					if ( in_array('merch', $cats) ) {
+						wc_get_template_part( 'content', 'single-product-merch' ); 
+					} else {
+						wc_get_template_part( 'content', 'single-product' ); 
+					}*/
+
+					if ( 'merch' == get_field('product_type') ) {
+						wc_get_template_part( 'content', 'single-product-merch' );
+					} else {
+						wc_get_template_part( 'content', 'single-product' ); 
+					}
+				?>
 
             <?php endwhile; // end of the loop. ?>
         </div>

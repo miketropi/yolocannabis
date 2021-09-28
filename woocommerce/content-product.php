@@ -62,11 +62,11 @@ if ( empty( $product ) || ! $product->is_visible() ) {
         the_title('<h2 class="woocommerce-loop-product__title"><a href="' . get_the_permalink() . '">', '</a></h2>');
 
         /**
-         * Hook: woocommerce_shop_loop_item_category.
+         * Hook: woocommerce_shop_item_category.
          *
-         * @hooked woocommerce_template_loop_category - 10
+         * @hooked woocommerce_template_category - 10
          */
-        do_action( 'woocommerce_shop_loop_item_category' );
+        do_action( 'woocommerce_shop_item_category' );
     ?>
     <?php
 	/**
