@@ -21,87 +21,195 @@ import {FooterWidgetToggleMobile} from './footer-widget-sidebar'
 
   $(ReadyHandle);
 
-  function CustomSelectBox() {
-    var x, i, j, l, ll, selElmnt, a, b, c;
-    /* Look for any elements with the class "custom-select": */
-    x = document.getElementsByClassName("custom-select");
-    l = x.length;
-    for (i = 0; i < l; i++) {
-      selElmnt = x[i].getElementsByTagName("select")[0];
-      ll = selElmnt.length;
-      /* For each element, create a new DIV that will act as the selected item: */
-      a = document.createElement("DIV");
-      a.setAttribute("class", "select-selected");
-      a.innerHTML = selElmnt.options[selElmnt.selectedIndex].innerHTML;
-      x[i].appendChild(a);
-      /* For each element, create a new DIV that will contain the option list: */
-      b = document.createElement("DIV");
-      b.setAttribute("class", "select-items select-hide");
-      for (j = 1; j < ll; j++) {
-        /* For each option in the original select element,
-        create a new DIV that will act as an option item: */
-        c = document.createElement("DIV");
-        c.innerHTML = selElmnt.options[j].innerHTML;
-        c.addEventListener("click", function(e) {
-            /* When an item is clicked, update the original select box,
-            and the selected item: */
-            var y, i, k, s, h, sl, yl;
-            s = this.parentNode.parentNode.getElementsByTagName("select")[0];
-            sl = s.length;
-            h = this.parentNode.previousSibling;
-            for (i = 0; i < sl; i++) {
-              if (s.options[i].innerHTML == this.innerHTML) {
-                s.selectedIndex = i;
-                h.innerHTML = this.innerHTML;
-                y = this.parentNode.getElementsByClassName("same-as-selected");
-                yl = y.length;
-                for (k = 0; k < yl; k++) {
-                  y[k].removeAttribute("class");
-                }
-                this.setAttribute("class", "same-as-selected");
-                break;
-              }
-            }
-            h.click();
-        });
-        b.appendChild(c);
-      }
-      x[i].appendChild(b);
-      a.addEventListener("click", function(e) {
-        /* When the select box is clicked, close any other select boxes,
-        and open/close the current select box: */
-        e.stopPropagation();
-        closeAllSelect(this);
-        this.nextSibling.classList.toggle("select-hide");
-        this.classList.toggle("select-arrow-active");
-      });
-    }
+  $('.custom-select select').select2({
+    minimumResultsForSearch: Infinity
+  });
 
-    function closeAllSelect(elmnt) {
-      /* A function that will close all select boxes in the document,
-      except the current select box: */
-      var x, y, i, xl, yl, arrNo = [];
-      x = document.getElementsByClassName("select-items");
-      y = document.getElementsByClassName("select-selected");
-      xl = x.length;
-      yl = y.length;
-      for (i = 0; i < yl; i++) {
-        if (elmnt == y[i]) {
-          arrNo.push(i)
+  /**
+   * Get Age
+   */
+  function getAge(dateString) {
+    var today = new Date();
+    var birthDate = new Date(dateString);
+    var age = today.getFullYear() - birthDate.getFullYear();
+    var m = today.getMonth() - birthDate.getMonth();
+    if (m < 0 || (m === 0 && today.getDate() < birthDate.getDate())) {
+        age--;
+    }
+    return age;
+  }
+  /**
+   * Age gate form
+   */
+  function AgeGateForm() {
+    $('#custom_location').select2({
+      minimumResultsForSearch: Infinity
+    });
+
+    $('form.age-gate-form').find('input[type="checkbox"]').parent().append('<span class="status"></span>');
+
+    $('.age-gate-form-elements input').change(function(){
+      var age_d = $(this).parents('.age-gate-form').find('#age-gate-d').val(),
+          age_m = $(this).parents('.age-gate-form').find('#age-gate-m').val(),
+          age_y = $(this).parents('.age-gate-form').find('#age-gate-y').val(),
+          age = getAge(age_d + '/' + age_m + '/' + age_y),
+          location = $('#custom_location').val();
+
+      if( 'QC' === location ) {
+        if( 21 > age ) {
+          $('div[data-error-field="age_gate_failed"]').addClass('has-error');
+          $('div[data-error-field="age_gate_failed"]').show();
+          $('div[data-error-field="age_gate_failed"]').html('<p class="age-gate-error-message">You are not old enough to view this content</p>');
         } else {
-          y[i].classList.remove("select-arrow-active");
+          $('div[data-error-field="age_gate_failed"]').hide();
+        }
+      } else {
+        if( 19 > age ) {
+          $('div[data-error-field="age_gate_failed"]').addClass('has-error');
+          $('div[data-error-field="age_gate_failed"]').show();
+          $('div[data-error-field="age_gate_failed"]').html('<p class="age-gate-error-message">You are not old enough to view this content</p>');
+        } else {
+          $('div[data-error-field="age_gate_failed"]').hide();
         }
       }
-      for (i = 0; i < xl; i++) {
-        if (arrNo.indexOf(i)) {
-          x[i].classList.add("select-hide");
-        }
-      }
-    }
+    });
 
-    /* If the user clicks anywhere outside the select box,
-    then close all select boxes: */
-    document.addEventListener("click", closeAllSelect);
+    $('#custom_location').change(function(){
+      var age_d = $(this).parents('.age-gate-form').find('#age-gate-d').val(),
+          age_m = $(this).parents('.age-gate-form').find('#age-gate-m').val(),
+          age_y = $(this).parents('.age-gate-form').find('#age-gate-y').val(),
+          age = getAge(age_d + '/' + age_m + '/' + age_y),
+          location = $(this).val();
+      
+      if( '' === location ) {
+        $(this).parent().find('.location-error').addClass('has-error');
+        $(this).parent().find('.location-error').html('<p class="location-error-message">Please select province</p>');
+        $(this).parent().find('.location-error').show();
+
+        if( 19 > age ) {
+          $('div[data-error-field="age_gate_failed"]').addClass('has-error');
+          $('div[data-error-field="age_gate_failed"]').show();
+          $('div[data-error-field="age_gate_failed"]').html('<p class="age-gate-error-message">You are not old enough to view this content</p>');
+        } else {
+          $('div[data-error-field="age_gate_failed"]').hide();
+        }
+        
+      } else {
+        $(this).parent().find('.location-error').hide();
+
+        if( 'QC' === location ) {
+          $('.custom-field-term b').html('21');
+  
+          if( 21 > age ) {
+            $('div[data-error-field="age_gate_failed"]').addClass('has-error');
+            $('div[data-error-field="age_gate_failed"]').show();
+            $('div[data-error-field="age_gate_failed"]').html('<p class="age-gate-error-message">You are not old enough to view this content</p>');
+          } else {
+            $('div[data-error-field="age_gate_failed"]').hide();
+          }
+        } else {
+          $('.custom-field-term b').html('19');
+  
+          if( 19 > age ) {
+            $('div[data-error-field="age_gate_failed"]').addClass('has-error');
+            $('div[data-error-field="age_gate_failed"]').show();
+            $('div[data-error-field="age_gate_failed"]').html('<p class="age-gate-error-message">You are not old enough to view this content</p>');
+          } else {
+            $('div[data-error-field="age_gate_failed"]').hide();
+          }
+        }
+      }
+    });
+
+    $('.custom-field-term input').change(function(){
+      if(true === $(this)[0].checked) {
+        $(this).parents('.age-gate-form').find('.term-error').hide();
+      } else {
+        $(this).parents('.age-gate-form').find('.term-error').addClass('has-error');
+        $(this).parents('.age-gate-form').find('.term-error').html('<p class="term-error-message">The field is required</p>');
+        $(this).parents('.age-gate-form').find('.term-error').show();
+      }
+    });
+    
+    $('form.age-gate-form').submit(function( event ) {
+      event.preventDefault();
+      
+      var location_validate = false,
+          term_validate = false,
+          age_d = $(this).find('#age-gate-d').val(),
+          age_m = $(this).find('#age-gate-m').val(),
+          age_y = $(this).find('#age-gate-y').val(),
+          age = getAge(age_d + '/' + age_m + '/' + age_y),
+          location = $(this).find('.custom-field-location select').val();
+
+      if('' === location) {
+        $(this).find('.location-error').addClass('has-error');
+        $(this).find('.location-error').html('<p class="location-error-message">Please select province</p>');
+        $(this).find('.location-error').show();
+
+        if(19 > age) {
+          $(this).find('div[data-error-field="age_gate_failed"]').addClass('has-error');
+          $(this).find('div[data-error-field="age_gate_failed"]').html('<p class="age-gate-error-message">You are not old enough to view this content</p>');
+          $(this).find('div[data-error-field="age_gate_failed"]').show();
+        } else {
+          $(this).find('div[data-error-field="age_gate_failed"]').removeClass('has-error');
+          $(this).find('div[data-error-field="age_gate_failed"]').html('');
+          $(this).find('div[data-error-field="age_gate_failed"]').hide();
+        }
+
+        location_validate = false;
+      } else {
+        $(this).find('.location-error').removeClass('has-error');
+        $(this).find('.location-error').html('');
+        $(this).find('.location-error').hide();
+
+        if('QC' === location) {
+          $(this).find('.custom-field-term .age-gate').html('21');
+
+          if(21 > age) {
+            $(this).find('div[data-error-field="age_gate_failed"]').addClass('has-error');
+            $(this).find('div[data-error-field="age_gate_failed"]').html('<p class="age-gate-error-message">You are not old enough to view this content</p>');
+            $(this).find('div[data-error-field="age_gate_failed"]').show();
+  
+            location_validate = false;
+          } else {
+
+            location_validate = true;
+          }
+        } else {
+          $(this).find('.custom-field-term .age-gate').html('19');
+
+          if(19 > age) {
+            $(this).find('div[data-error-field="age_gate_failed"]').addClass('has-error');
+            $(this).find('div[data-error-field="age_gate_failed"]').html('<p class="age-gate-error-message">You are not old enough to view this content</p>');
+            $(this).find('div[data-error-field="age_gate_failed"]').show();
+  
+            location_validate = false;
+          } else {
+
+            location_validate = true;
+          }
+        }
+      }
+
+      if( true === $(this).find('.custom-field-term input')[0].checked ) {
+        $(this).find('.term-error').removeClass('has-error');
+        $(this).find('.term-error').html('');
+        $(this).find('.term-error').hide();
+        term_validate = true;
+      } else {
+        $(this).find('.term-error').addClass('has-error');
+        $(this).find('.term-error').html('<p class="term-error-message">The field is required</p>');
+        $(this).find('.term-error').show();
+        term_validate = false;
+      }
+      
+      if( true === location_validate && true == term_validate ) {
+        return true;
+      } else {
+        return false;
+      }
+    });
   }
 
   /**
@@ -145,6 +253,7 @@ import {FooterWidgetToggleMobile} from './footer-widget-sidebar'
 
   jQuery(document).ready(function($) {
     CustomSelectBox();
+    AgeGateForm();
     AnchorActiveMenuItemScroll();
     BackToTop();
     

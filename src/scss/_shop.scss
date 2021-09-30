@@ -78,48 +78,8 @@
                     .product-field {
                         max-width: 340px;
                         margin: 60px auto 0;
-                        &.custom-select {
-                            position: relative;
-                            font-family: "Exo 2",Sans-serif;
-                            font-size: 18px;
-                            font-weight: 400;
-                            line-height: 30px;
-                            color: #fff;
-                            cursor: pointer;
-                            select {
-                                display: none;
-                            }
-                            .select-selected {
-                                background-color: #0f1024;
-                                background-image: url(../../images/arrow.png); 
-                                background-repeat: no-repeat;
-                                background-position: right 15px center;
-                                padding: 5px 20px;
-                                border-radius: 10px;
-                                &.select-arrow-active {
-                                    border-radius: 10px 10px 0 0;
-                                }
-                            }
-                            .select-items {
-                                position: absolute;
-                                top: 100%;
-                                left: 0;
-                                right: 0;
-                                z-index: 99;
-                                background-color: #0f1024;
-                                padding-bottom: 12px;
-                                border-radius: 0 0 10px 10px;
-                                div {
-                                    padding: 2px 20px;
-                                    &:hover,
-                                    &.same-as-selected {
-                                        background-color: #442bd7;
-                                    }
-                                }
-                            }
-                            .select-hide {
-                                display: none;
-                            }
+                        .select2-container--default .select2-selection--single {
+                            background-color: #0f1024;
                         }
                         select {
                             width: 100%;
@@ -426,52 +386,8 @@
                                 }
                                 &.value {
                                     padding: 15px 0;
-                                    .custom-select {
-                                        position: relative;
-                                        font-family: "Exo 2",Sans-serif;
-                                        font-size: 18px;
-                                        font-weight: 400;
-                                        line-height: 30px;
-                                        color: #fff;
-                                        cursor: pointer;
-                                        max-width: 250px;
-                                        .reset_variations {
-                                            display: none;
-                                        }
-                                        select {
-                                            display: none;
-                                        }
-                                        .select-selected {
-                                            background-color: #0f1024;
-                                            background-image: url(../../images/arrow.png); 
-                                            background-repeat: no-repeat;
-                                            background-position: right 15px center;
-                                            padding: 5px 20px;
-                                            border-radius: 10px;
-                                            &.select-arrow-active {
-                                                border-radius: 10px 10px 0 0;
-                                            }
-                                        }
-                                        .select-items {
-                                            position: absolute;
-                                            top: 100%;
-                                            left: 0;
-                                            right: 0;
-                                            z-index: 99;
-                                            background-color: #0f1024;
-                                            padding-bottom: 12px;
-                                            border-radius: 0 0 10px 10px;
-                                            div {
-                                                padding: 2px 20px;
-                                                &:hover,
-                                                &.same-as-selected {
-                                                    background-color: #442bd7;
-                                                }
-                                            }
-                                        }
-                                        .select-hide {
-                                            display: none;
-                                        }
+                                    .select2-container--default .select2-selection--single {
+                                        background-color: #0f1024;
                                     }
                                     select {
                                         font-size: 18px;
@@ -482,6 +398,10 @@
                                         padding: 5px 20px;
                                         border: none;
                                         border-radius: 10px;
+                                    }
+                                    .reset_variations {
+                                        display: inline-block;
+                                        margin-left: 15px;
                                     }
                                 }
                             }
@@ -600,6 +520,7 @@
 
             .best-sells {
                 padding: 0 0 120px;
+                overflow: hidden;
                 > h2 {
                     font-family: "Exo 2", Sans-serif;
                     font-size: 44px;
@@ -612,16 +533,20 @@
                 ul.products {
                     display: flex;
                     flex-wrap: wrap;
-                    margin: 0 -15px;
+                    margin: 0 -45px;
                     li.product {
                         float: none;
                         width: 33.33%;
                         margin: 0 0 40px;
-                        padding: 0 15px;
+                        padding: 0 45px;
                         .woocommerce-loop-product__thumb {
+                            max-width: 100%;
                             a {
                                 display: block;
                                 width: 100%;
+                            }
+                            img {
+                                border-radius: 3px;
                             }
                         }
                         .woocommerce-loop-product__title {
@@ -660,6 +585,12 @@
             @media( max-width: $break-lg - 0.02 ) {
                 .product-header div.summary .woocommerce-tabs ul.tabs li a {
                     font-size: 20px;
+                }
+                .best-sells ul.products {
+                    margin: 0 -15px;
+                    li.product {
+                        padding: 0 15px;
+                    }
                 }
             }
 

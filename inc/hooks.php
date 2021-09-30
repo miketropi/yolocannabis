@@ -114,7 +114,7 @@ add_action( 'elementor/widget/render_content', function( $content, $widget ) {
                                     <img width="300" height="405" src="' . get_stylesheet_directory_uri() . '/images/pro-coming-soon.png' . '" class="attachment-woocommerce_thumbnail" alt="">  
                                 </div>
                                 
-                                <h2 class="woocommerce-product__title">Coming soon</h2>
+                                <h2 class="woocommerce-loop-product__title">Coming soon</h2>
                                 <div class="woocommerce-product__cat">
                                     <a href="#subscrible_section">Subscribe to our newsletter below</a>
                                 </div>   
@@ -129,6 +129,9 @@ add_action( 'elementor/widget/render_content', function( $content, $widget ) {
     return $content;
 }, 10, 2 );
 
+/**
+ * Bestseller load more
+ */
 
 function products_load_more_scripts() {
  
@@ -200,8 +203,40 @@ function products_loadmore_ajax_handler(){
 	endif;
 	die; // here we exit the script and even no wp_reset_query() required!
 }
- 
- 
- 
+
 add_action('wp_ajax_loadmore', 'products_loadmore_ajax_handler'); // wp_ajax_{action}
 add_action('wp_ajax_nopriv_loadmore', 'products_loadmore_ajax_handler'); // wp_ajax_nopriv_{action}
+
+
+
+
+add_filter('post_age_gate_custom_fields', 'age_gate_custom_fields', 10, 1);
+
+function age_gate_custom_fields($fields){
+    $fields .= '<div class="custom-field-location">
+                    <label>Select your location</label>
+                    <select name="custom-location" id="custom_location">
+                        <option value="">Select province</option>
+                        <option value="AB">Alberta</option>
+                        <option value="BC">British Columbia</option>
+                        <option value="MB">Manitoba</option>
+                        <option value="NB">New Brunswick</option>
+                        <option value="NL">Newfoundland and Labrador</option>
+                        <option value="NS">Nova Scotia</option>
+                        <option value="ON">Ontario</option>
+                        <option value="PE">Prince Edward Island</option>
+                        <option value="QC">Quebec</option>
+                        <option value="SK">Saskatchewan</option>
+                        <option value="NT">Northwest Territories</option>
+                        <option value="NU">Nunavut</option>
+                        <option value="YT">Yukon</option>
+                    </select>
+                    <div class="location-error"></div>
+                </div>';
+    $fields .= '<div class="custom-field-term">
+                    <label><input type="checkbox" name="ag_field_terms" value="1" /> I acknowledge that I must be <b>19</b> or older to enter this website and to buy and receive products from yolocannabis.ca</label>
+                    <div class="term-error"></div>
+                </div>';
+    
+    return $fields;
+}

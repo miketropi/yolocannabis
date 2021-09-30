@@ -36,6 +36,21 @@ function YoloEnqueueScripts() {
   );
 
   wp_enqueue_style(
+    'select2',
+    YOLO_URI . '/src/select2.min.css',
+    false,
+    $randomVersion // wp_get_theme()->get('Version')
+  );
+
+  wp_enqueue_script(
+    'select2',
+    YOLO_URI . '/src/select2.min.js',
+    ['jquery'],
+    $randomVersion, // wp_get_theme()->get('Version'),
+    true
+  );
+
+  wp_enqueue_style(
     'yolo',
     YOLO_URI . '/dist/css/frontend-yolo.bundle.css',
     false,
