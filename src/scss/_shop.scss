@@ -39,6 +39,12 @@
 
 
 .single-product {
+    .select2-container--default {
+        .select2-dropdown,
+        .select2-selection--single {
+            background-color: #0f1024;
+        }
+    }
     &.poduct-type-merch {
         .site-main {
             padding-top: 210px;
@@ -78,9 +84,6 @@
                     .product-field {
                         max-width: 340px;
                         margin: 60px auto 0;
-                        .select2-container--default .select2-selection--single {
-                            background-color: #0f1024;
-                        }
                         select {
                             width: 100%;
                             font-family: "Exo 2",Sans-serif;
@@ -386,9 +389,6 @@
                                 }
                                 &.value {
                                     padding: 15px 0;
-                                    .select2-container--default .select2-selection--single {
-                                        background-color: #0f1024;
-                                    }
                                     select {
                                         font-size: 18px;
                                         line-height: 30px;
