@@ -21,9 +21,14 @@ import {FooterWidgetToggleMobile} from './footer-widget-sidebar'
 
   $(ReadyHandle);
 
-  $('.custom-select select').select2({
-    minimumResultsForSearch: Infinity
-  });
+  /**
+   * Custom Select Box
+   */
+  function CustomSelectBox() {
+    $('.custom-select select').select2({
+      minimumResultsForSearch: Infinity
+    });
+  }
 
   /**
    * Get Age
