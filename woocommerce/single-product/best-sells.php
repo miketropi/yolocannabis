@@ -52,7 +52,7 @@ if ( $bestsells->post_count != 0 ) : ?>
 
             <?php 
                 while ( $bestsells->have_posts() ) { $bestsells->the_post();
-                    wc_get_template_part( 'content', 'product' );
+                    wc_get_template_part( 'content-seller', 'product' );
                 } 
             ?>
         
