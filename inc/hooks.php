@@ -30,17 +30,53 @@ add_action( 'woocommerce_upsell_display', 'woocommerce_upsell_display', 15 );
 
 
 
-
+/**
+ * Product Category
+ */
 add_action( 'woocommerce_shop_item_category', 'woocommerce_template_category', 10 );
 
 function woocommerce_template_category() {
     the_terms( get_the_ID(), 'product_cat', '<div class="woocommerce-product__cat">', ', ' , '</div>' );
 }
 
+/**
+ * Product Tag
+ */
 add_action( 'woocommerce_shop_item_tag', 'woocommerce_template_tag', 10 );
 
 function woocommerce_template_tag() {
     the_terms( get_the_ID(), 'product_tag', '<div class="woocommerce-product__tag"><h3>Tags</h3>', ', ' , '</div>' );
+}
+
+/**
+ * Product Per Serving
+ */
+add_action( 'woocommerce_shop_item_per_serving', 'woocommerce_template_per_serving', 10 );
+
+function woocommerce_template_per_serving() {
+    $total_thc = get_field('total_thc', get_the_ID());
+    $total_cbd = get_field('total_cbd', get_the_ID());
+    $servings = get_field('servings', get_the_ID());
+    $per_pack = get_field('per_pack', get_the_ID());
+
+    $one_pack = absint($total_thc) / absint($per_pack);
+    $one_serving = absint($total_cbd) / absint($servings);
+
+    if( $one_pack > 0 || $one_serving > 0 ) {
+        ?>
+            <div class="woocommerce-product__per-serving">
+                <?php 
+                    if( $one_pack > 0 ) {
+                        echo '<span>'. $one_pack .'mg THC</span>';
+                    }
+
+                    if( $one_serving > 0 ) {
+                        echo '<span>'. $one_serving .'mg CBD</span>';
+                    }
+                ?>
+            </div>
+        <?php
+    }   
 }
 
 /**

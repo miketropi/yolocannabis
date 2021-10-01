@@ -110,30 +110,30 @@ if ( post_password_required() ) {
 				$per_pack = get_field('per_pack');
 			?>
 
-			<?php if( !empty( $total_thc ) || !empty( $total_cbd ) || !empty( $servings ) || !empty( $per_pack ) ) { ?>
+			<?php if( '' != $total_thc || '' != $total_cbd || '' != $servings || '' != $per_pack ) { ?>
 				<ul class="product-metas">
-					<?php if( !empty( $total_thc ) ) { ?>
+					<?php if( '' != $total_thc ) { ?>
 						<li>
 							<h3 class="meta-title">TOTAL THC</h3>
 							<?php echo '<div class="meta-value">' . $total_thc . '<span class="unit">mg</span></div>' ?>
 						</li>
 					<?php } ?>
 
-					<?php if( !empty( $total_cbd ) ) { ?>
+					<?php if( '' != $total_cbd ) { ?>
 						<li>
 							<h3 class="meta-title">TOTAL CBD</h3>
 							<?php echo '<div class="meta-value">' . $total_cbd . '<span class="unit">mg</span></div>' ?>
 						</li>
 					<?php } ?>
 
-					<?php if( !empty( $servings ) ) { ?>
+					<?php if( '' != $servings ) { ?>
 						<li>
 							<h3 class="meta-title">SERVINGS</h3>
 							<?php echo '<div class="meta-value">' . $servings . '</div>'; ?>
 						</li>
 					<?php } ?>
 
-					<?php if( !empty( $per_pack ) ) { ?>
+					<?php if( '' != $per_pack ) { ?>
 						<li>
 							<h3 class="meta-title">PER PACK</h3>
 							<?php echo '<div class="meta-value">' . $per_pack . '</div>'; ?>

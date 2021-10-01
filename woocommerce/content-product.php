@@ -66,7 +66,15 @@ if ( empty( $product ) || ! $product->is_visible() ) {
          *
          * @hooked woocommerce_template_category - 10
          */
-        do_action( 'woocommerce_shop_item_category' );
+        //do_action( 'woocommerce_shop_item_category' );
+
+        /**
+         * Hook: woocommerce_shop_item_per_serving.
+         *
+         * @hooked woocommerce_template_per_serving - 10
+         */
+        do_action( 'woocommerce_shop_item_per_serving' );
+        
     ?>
     <?php
 	/**
