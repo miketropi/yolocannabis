@@ -58,7 +58,7 @@ class ElementorWidgets {
 	 * @access public
 	 */
 	public function widget_styles() {
-
+        
 	}
 
 	/**

@@ -49,11 +49,11 @@ if ( post_password_required() ) {
         <div class="summary entry-summary">
             <?php
             /**
-             * Hook: woocommerce_shop_item_category.
+             * Hook: woocommerce_shop_item_merch_category.
              *
-             * @hooked woocommerce_template_category - 10
+             * @hooked woocommerce_template_merch_category - 10
              */
-            do_action( 'woocommerce_shop_item_category' );
+            do_action( 'woocommerce_shop_item_merch_category' );
 
             /**
              * Hook: woocommerce_single_product_summary.

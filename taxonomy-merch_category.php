@@ -27,11 +27,11 @@ if ( ! empty( $tax ) && ! is_wp_error( $tax ) ) {
 
 <main id="main" class="site-main" role="main">
     <div class="container">
-        <div class="woo-content-wrap">
+        <div class="woo-merch-products-wrap">
             <div class="woo-col-category">
                 <?php 
                     if ( ! empty( $terms ) && ! is_wp_error( $terms ) ) {
-                        echo '<ul>';
+                        echo '<ul class="woo-nav">';
                             foreach ( $terms as $term ) {
                                 if( $tax_slug == $term->slug ) {
                                     echo '<li class="current"><a href="'.get_term_link($term->slug, 'merch_category').'">' . $term->name . '</a></li>';

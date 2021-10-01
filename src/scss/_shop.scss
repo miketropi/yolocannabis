@@ -53,90 +53,11 @@
     .site-main {
         padding: 210px 0 120px;
         background-image: url(../../images/single-merch-page-bg.jpg); 
-        .woo-content-wrap {
-            display: flex;
-            .woo-col-category {
-                width: 33.33%;
-                ul {
-                    list-style: none;
-                    margin: 0;
-                    padding: 0;
-                    li {
-                        display: block;
-                        font-family: "Exo 2",Sans-serif;
-                        font-size: 50px;
-                        font-weight: 700;
-                        line-height: 50px;
-                        text-transform: uppercase;
-                        color: $main-color;
-                        margin: 0 0 12px;
-                        padding: 0;
-                        &:last-child {
-                            margin-bottom: 0;
-                        }
-                        &.current a {
-                            color: $secondary-color;
-                        }
-                        a {
-                            color: inherit;
-                        }
-                    }
-                }
-            }
-            .woo-col-content {
-                width: 66.67%;
-                overflow: hidden;
-                .woo-term-desc {
-                    font-family: "Exo 2",Sans-serif;
-                    font-size: 18px;
-                    font-weight: 400;
-                    line-height: 30px;
-                    margin-bottom: 60px;
-                }
-                .woo-products-list {
-                    display: flex;
-                    margin: 0 -45px;
-                    .woo-product-item {
-                        width: 50%;
-                        text-align: center;
-                        margin-bottom: 50px;
-                        padding: 0 45px;
-                        .woo-product-thumb {
-                            margin-bottom: 30px;
-                            img {
-                                width: 100%;
-                                height: auto;
-                                border-radius: 3px;
-                            }
-                        }
-                        .woo-product-title {
-                            font-family: "Ubuntu", Sans-serif;
-                            font-size: 22px;
-                            font-weight: 500;
-                            line-height: 30px;
-                            margin: 0;
-                        }
-                    }
-                }
-            }
-        }
     }
 
     @media( max-width: $break-tl - 0.02 ) {
         .site-main{
             padding: 160px 0 90px;
-            .woo-content-wrap {
-                .woo-col-category ul li {
-                    font-size: 40px;
-                    line-height: 40px;
-                }
-                .woo-col-content .woo-products-list {
-                    margin: 0 -15px;
-                    .woo-product-item {
-                        padding: 0 15px; 
-                    }
-                }
-            }
         } 
     }
 
@@ -146,20 +67,110 @@
             .container {
                 max-width: 540px;
             }
-            .woo-content-wrap {
-                flex-direction: column;
-                .woo-col-category {
-                    width: 100%;
-                    margin-bottom: 60px;
+        }
+    }
+}
+
+.woo-merch-products-wrap {
+    display: flex;
+    .woo-col-category {
+        width: 33.33%;
+        ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            li {
+                display: block;
+                font-family: "Exo 2",Sans-serif;
+                font-size: 50px;
+                font-weight: 700;
+                line-height: 50px;
+                text-transform: uppercase;
+                color: $main-color;
+                margin: 0 0 12px;
+                padding: 0;
+                &:last-child {
+                    margin-bottom: 0;
                 }
-                .woo-col-content {
-                    width: 100%;
-                    .woo-products-list {
-                        flex-direction: column;
-                        .woo-product-item {
-                            width: 100%;
-                        }
+                &.current a,
+                &.active a {
+                    color: $secondary-color;
+                }
+                a {
+                    color: inherit;
+                }
+            }
+        }
+    }
+    .woo-col-content {
+        width: 66.67%;
+        overflow: hidden;
+        .tabs-panel {
+            display: none;
+            &.active {
+                display: block;
+            }
+        }
+        .woo-term-desc {
+            font-family: "Exo 2",Sans-serif;
+            font-size: 18px;
+            font-weight: 400;
+            line-height: 30px;
+            margin-bottom: 60px;
+        }
+        .woo-products-list {
+            display: flex;
+            flex-wrap: wrap;
+            margin: 0 -45px;
+            .woo-product-item {
+                width: 50%;
+                text-align: center;
+                margin-bottom: 45px;
+                padding: 0 45px;
+                .woo-product-thumb {
+                    margin-bottom: 30px;
+                    img {
+                        width: 100%;
+                        height: auto;
+                        border-radius: 3px;
                     }
+                }
+                .woo-product-title {
+                    font-family: "Ubuntu", Sans-serif;
+                    font-size: 22px;
+                    font-weight: 500;
+                    line-height: 30px;
+                    margin: 0;
+                }
+            }
+        }
+    }
+
+    @media( max-width: $break-tl - 0.02 ) {
+        .woo-col-category ul li {
+            font-size: 40px;
+            line-height: 40px;
+        }
+        .woo-col-content .woo-products-list {
+            margin: 0 -15px;
+            .woo-product-item {
+                padding: 0 15px; 
+            }
+        }
+    }
+
+    @media( max-width: $break-sm - 0.02 ) {
+        flex-direction: column;
+        .woo-col-category {
+            width: 100%;
+            margin-bottom: 60px;
+        }
+        .woo-col-content {
+            width: 100%;
+            .woo-products-list {
+                flex-direction: column;
+                .woo-product-item {
+                    width: 100%;
                 }
             }
         }

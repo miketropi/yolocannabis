@@ -35,6 +35,15 @@ function woocommerce_template_category() {
 }
 
 /**
+ * Product Merch Category
+ */
+add_action( 'woocommerce_shop_item_merch_category', 'woocommerce_template_merch_category', 10 );
+
+function woocommerce_template_merch_category() {
+    the_terms( get_the_ID(), 'merch_category', '<div class="woocommerce-product__cat">', ', ' , '</div>' );
+}
+
+/**
  * Product Tag
  */
 add_action( 'woocommerce_shop_item_tag', 'woocommerce_template_tag', 10 );
