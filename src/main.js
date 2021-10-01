@@ -272,4 +272,9 @@ import {FooterWidgetToggleMobile} from './footer-widget-sidebar'
 		AnchorActiveMenuItemScroll();
 	});
 
+  jQuery(window).on('load',function(){
+    console.log("check on load");
+  });
+ 
+
 })(window, jQuery)
