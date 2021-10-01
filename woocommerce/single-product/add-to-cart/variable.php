@@ -53,7 +53,7 @@ do_action( 'woocommerce_before_add_to_cart_form' ); ?>
 			</tbody>
 		</table>
 
-		<div class="single_variation_wrap">
+		<!--div class="single_variation_wrap">
 			<?php
 				/**
 				 * Hook: woocommerce_before_single_variation.
@@ -74,7 +74,7 @@ do_action( 'woocommerce_before_add_to_cart_form' ); ?>
 				 */
 				do_action( 'woocommerce_after_single_variation' );
 			?>
-		</div>
+		</div-->
 	<?php endif; ?>
 
 	<?php do_action( 'woocommerce_after_variations_form' ); ?>

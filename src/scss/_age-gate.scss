@@ -1,5 +1,8 @@
 .age-gate-restricted body > .select2-container {
     z-index: 99999;
+    &--default .select2-dropdown {
+        background-color: #080913
+    }
 }
 .age-gate-wrapper {
     padding: 0 15px;

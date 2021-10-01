@@ -20,6 +20,8 @@
   require(YOLO_DIR . '/inc/helpers.php');
   require(YOLO_DIR . '/inc/template-tags.php');
   require(YOLO_DIR . '/inc/ajax.php');
+
+  require(YOLO_DIR . '/woocommerce/hooks.php');
 }
 
 function YoloEnqueueScripts() {
