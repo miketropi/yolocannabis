@@ -5,6 +5,23 @@
 	 */
 	var MerchProductsHandler = function( $scope, $ ) {
 		console.log($scope);
+        var nav = $scope.find('.tabs-nav'),
+            panel = $scope.find('.tabs-panel');
+
+            nav.find('li a').on('click', function(event) {
+                event.preventDefault();
+                nav.find('li').removeClass('active');
+                $(this).parent().addClass('active');
+
+                var href = $(this).attr('href')
+
+                panel.removeClass('active');
+                panel.each(function() {
+                    if( href == '#' + $(this).data('term') ) {
+                        $(this).addClass('active');
+                    }
+                });
+            });
 
  	};
 

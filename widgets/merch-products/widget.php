@@ -31,38 +31,10 @@ class Yolo_Merch_Products extends Widget_Base {
 		);
 
 		$this->add_control(
-			'title',
+			'all_desc',
 			[
-				'label' => __( 'Title', 'text-domain' ),
-				'type' => Controls_Manager::TEXT,
-			]
-		);
-
-		$this->end_controls_section();
-
-		$this->start_controls_section(
-			'section_style',
-			[
-				'label' => __( 'Style', 'text-domain' ),
-				'tab' => Controls_Manager::TAB_STYLE,
-			]
-		);
-
-		$this->add_control(
-			'text_transform',
-			[
-				'label' => __( 'Text Transform', 'text-domain' ),
-				'type' => Controls_Manager::SELECT,
-				'default' => '',
-				'options' => [
-					'' => __( 'None', 'text-domain' ),
-					'uppercase' => __( 'UPPERCASE', 'text-domain' ),
-					'lowercase' => __( 'lowercase', 'text-domain' ),
-					'capitalize' => __( 'Capitalize', 'text-domain' ),
-				],
-				'selectors' => [
-					'{{WRAPPER}} .title' => 'text-transform: {{VALUE}};',
-				],
+				'label' => __( 'All Description', 'text-domain' ),
+				'type' => Controls_Manager::TEXTAREA,
 			]
 		);
 
@@ -87,7 +59,7 @@ class Yolo_Merch_Products extends Widget_Base {
                                 foreach ( $terms as $term ) {
                                     echo '<li><a class="" href="#' . $term->slug . '">' . $term->name . '</a></li>';
                                 }
-                                echo '<li class="active"><a href="all">All</a></li>';
+                                echo '<li class="active"><a href="#all">All</a></li>';
                                 
                             echo '</ul>';
                         }
@@ -144,7 +116,7 @@ class Yolo_Merch_Products extends Widget_Base {
                             }
                         }
                     ?>
-                    <div class="panel active"  data-term="all">
+                    <div class="tabs-panel active"  data-term="all">
                         <?php 
                             $wp_query = new \WP_Query(
                                 array(
@@ -162,6 +134,9 @@ class Yolo_Merch_Products extends Widget_Base {
                                 )
                             );
 
+                            if( !empty( $settings['all_desc'] ) ) {
+                                echo '<div class="woo-term-desc">' . $settings['all_desc'] . '</div>';
+                            }
                             echo '<div class="woo-products-list">';
                                 while ( $wp_query->have_posts() ) : $wp_query->the_post();
                                     ?>
