@@ -135,12 +135,34 @@
                         border-radius: 3px;
                     }
                 }
-                .woo-product-title {
-                    font-family: "Ubuntu", Sans-serif;
-                    font-size: 22px;
-                    font-weight: 500;
-                    line-height: 30px;
-                    margin: 0;
+                .woo-product-info {
+                    .woo-product-title {
+                        font-family: "Ubuntu", Sans-serif;
+                        font-size: 22px;
+                        font-weight: 500;
+                        line-height: 30px;
+                        margin: 0;
+                    }
+                    a.button {
+                        display: inline-block;
+                        font-family: "Ubuntu",Sans-serif;
+                        font-size: 18px;
+                        font-weight: 500;
+                        line-height: 30px;
+                        text-decoration: none;
+                        color: $main-color;
+                        background: #080913;
+                        min-width: 240px;
+                        margin-top: 20px;
+                        padding: 6px 15px;
+                        border: 2px solid $main-color;
+                        border-radius: 10px;
+                        &:hover,
+                        &:focus {
+                            color: #FFFFFF;
+                            background: $main-color;
+                        }
+                    }
                 }
             }
         }
@@ -176,6 +198,50 @@
         }
     }
 }
+
+.woocommerce {
+    .woocommerce-error, 
+    .woocommerce-info, 
+    .woocommerce-message {
+        font-family: "Exo 2",Sans-serif;
+        font-size: 16px;
+        font-weight: 400;
+        line-height: 22px;
+        color: #FFFFFF;
+        background-color: rgba(255, 255, 255, 0.05);
+        padding: 15px 20px 15px 45px;
+        &:before {
+            top: 15px;
+            left: 20px;
+        }
+        a.button {
+            font-family: "Ubuntu", Sans-serif;
+            font-size: 16px;
+            font-weight: 500;
+            line-height: 20px;
+            text-decoration: none;
+            color: $main-color;
+            padding: 5px 15px;
+            background: transparent;
+            border: 2px solid $main-color;
+            border-radius: 10px;
+            &:hover,
+            &:focus {
+                color: #FFFFFF;
+                background: $main-color;
+                text-decoration: none;
+            }
+        }
+
+        @media( max-width: $break-xs - 0.02 ) {
+            padding: 15px;
+            &:before {
+                display: none;
+            }
+        }
+    }
+}
+
 
 .single-product {
     &.admin-bar {

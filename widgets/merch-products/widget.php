@@ -102,11 +102,16 @@ class Yolo_Merch_Products extends Widget_Base {
                                                             </a>
                                                         <?php endif; ?>
                                                     </div>
-                                                    <h2 class="woo-product-title">
-                                                        <a href="<?php the_permalink(); ?>">
-                                                            <?php the_title(); ?>
-                                                        </a>
-                                                    </h2>
+                                                    <div class="woo-product-info">
+                                                        <h2 class="woo-product-title">
+                                                            <a href="<?php the_permalink(); ?>">
+                                                                <?php the_title(); ?>
+                                                            </a>
+                                                        </h2>
+
+                                                        <?php do_action( 'woocommerce_loop_add_to_cart'); ?>
+                                                        <?php //do_action( 'woocommerce_single_add_to_cart'); ?>
+                                                    </div>
                                                 </div>
                                             <?php
                                         endwhile;
@@ -148,11 +153,16 @@ class Yolo_Merch_Products extends Widget_Base {
                                                     </a>
                                                 <?php endif; ?>
                                             </div>
-                                            <h2 class="woo-product-title">
-                                                <a href="<?php the_permalink(); ?>">
-                                                    <?php the_title(); ?>
-                                                </a>
-                                            </h2>
+                                            <div class="woo-product-info">
+                                                <h2 class="woo-product-title">
+                                                    <a href="<?php the_permalink(); ?>">
+                                                        <?php the_title(); ?>
+                                                    </a>
+                                                </h2>
+                                                
+                                                <?php do_action( 'woocommerce_loop_add_to_cart'); ?>
+                                                <?php //do_action( 'woocommerce_single_add_to_cart'); ?>
+                                            </div>
                                         </div>
                                     <?php
                                 endwhile;

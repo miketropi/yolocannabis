@@ -242,6 +242,42 @@ import {FooterWidgetToggleMobile} from './footer-widget-sidebar'
   }
 
   /**
+   * Anchor Term Scroll
+   */
+   function AnchorTermScroll() {
+    var sec_attr = [];
+
+    if( $('body').hasClass('admin-bar') ) {
+      var scroll_pos = $(window).scrollTop() + 33;
+    } else {
+      var scroll_pos = $(window).scrollTop() + 1;
+    }
+    
+    $('#terms_of_service_section .terms-heading').each(function(){
+      sec_attr.push([$(this).attr('id'), $(this).offset().top]);
+    });
+
+    $.each(sec_attr, function( index, value ) {
+      if(scroll_pos >= value[1] && scroll_pos < value[1] + $('#' + value[0]).innerHeight()){
+        $('.elementor-icon-list-items > li').removeClass('current');
+        $('.elementor-icon-list-items > li > a[href="#' + value[0] +'"]').parent().addClass('current');
+      }
+    });
+  }
+
+  /**
+   * Product Field Redirect
+   */
+  function ProductFieldRedirect() {
+    $('#product_field').change(function(){
+      var current_url = document.location.origin;
+
+      window.location.href = current_url + '/product/' + $(this).val() + '/';
+    });
+    
+  }
+
+  /**
    * Back To Top
    */
 	function BackToTop() {
@@ -257,19 +293,26 @@ import {FooterWidgetToggleMobile} from './footer-widget-sidebar'
 	}
 
   jQuery(document).ready(function($) {
+    $('.elementor-icon-list-items > li:first-child').addClass('current');
+    
     CustomSelectBox();
     AgeGateForm();
     AnchorActiveMenuItemScroll();
+    AnchorTermScroll();
+    ProductFieldRedirect();
+
     BackToTop();
     
   });
 
   jQuery(window).on('resize', function() {
 		AnchorActiveMenuItemScroll();
+    AnchorTermScroll();
 	});
 
 	jQuery(window).on('scroll', function() {
 		AnchorActiveMenuItemScroll();
+    AnchorTermScroll();
 	});
  
 })(window, jQuery)
