@@ -266,6 +266,18 @@ import {FooterWidgetToggleMobile} from './footer-widget-sidebar'
   }
 
   /**
+   * Product Field Redirect
+   */
+  function ProductFieldRedirect() {
+    $('#product_field').change(function(){
+      var current_url = document.location.origin;
+
+      window.location.href = current_url + '/product/' + $(this).val() + '/';
+    });
+    
+  }
+
+  /**
    * Back To Top
    */
 	function BackToTop() {
@@ -287,6 +299,8 @@ import {FooterWidgetToggleMobile} from './footer-widget-sidebar'
     AgeGateForm();
     AnchorActiveMenuItemScroll();
     AnchorTermScroll();
+    ProductFieldRedirect();
+
     BackToTop();
     
   });

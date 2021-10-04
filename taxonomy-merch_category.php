@@ -73,6 +73,7 @@ if ( ! empty( $tax ) && ! is_wp_error( $tax ) ) {
                                     </h2>
                                     
                                     <?php do_action( 'woocommerce_loop_add_to_cart'); ?>
+                                    <?php //do_action( 'woocommerce_single_add_to_cart'); ?>
                                 </div>
                                 
                             </div>

@@ -81,9 +81,9 @@ if ( post_password_required() ) {
 							while ( $related->have_posts() ) { $related->the_post(); 
 								
 								if( $product_id == get_the_ID() ) {
-									echo '<option value="'. get_the_ID() .'" selected="selected">' . get_the_title() . '</option>';
+									echo '<option value="'. get_post_field( 'post_name', get_the_ID() ) .'" selected="selected">' . get_the_title() . '</option>';
 								} else {
-									echo '<option value="'. get_the_ID() .'">' . get_the_title() . '</option>';
+									echo '<option value="'. get_post_field( 'post_name', get_the_ID() ) .'">' . get_the_title() . '</option>';
 								}
 							}
 						?>

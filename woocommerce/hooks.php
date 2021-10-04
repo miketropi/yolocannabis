@@ -20,6 +20,7 @@ add_action( 'woocommerce_loop_product_link_open', 'woocommerce_template_loop_pro
 add_action( 'woocommerce_loop_product_link_close', 'woocommerce_template_loop_product_link_close', 5 );
 add_action( 'woocommerce_loop_product_thumbnail', 'woocommerce_template_loop_product_thumbnail', 10 );
 add_action( 'woocommerce_loop_add_to_cart', 'woocommerce_template_loop_add_to_cart', 10 );
+add_action( 'woocommerce_single_add_to_cart', 'woocommerce_template_single_add_to_cart', 30 );
 add_action( 'woocommerce_single_title', 'woocommerce_template_single_title', 5 );
 add_action( 'woocommerce_single_excerpt', 'woocommerce_template_single_excerpt', 20 );
 add_action( 'woocommerce_upsell_display', 'woocommerce_upsell_display', 15 );

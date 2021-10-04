@@ -110,6 +110,7 @@ class Yolo_Merch_Products extends Widget_Base {
                                                         </h2>
 
                                                         <?php do_action( 'woocommerce_loop_add_to_cart'); ?>
+                                                        <?php //do_action( 'woocommerce_single_add_to_cart'); ?>
                                                     </div>
                                                 </div>
                                             <?php
@@ -160,6 +161,7 @@ class Yolo_Merch_Products extends Widget_Base {
                                                 </h2>
                                                 
                                                 <?php do_action( 'woocommerce_loop_add_to_cart'); ?>
+                                                <?php //do_action( 'woocommerce_single_add_to_cart'); ?>
                                             </div>
                                         </div>
                                     <?php
