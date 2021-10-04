@@ -1,0 +1,15 @@
+.terms-of-service-section {
+    @media( min-width: 768px ) {
+        .elementor-widget-icon-list {
+            position: sticky;
+            top: 30px;
+        }
+    }
+    .elementor-widget-icon-list .elementor-icon-list-item.current .elementor-icon-list-text {
+        font-weight: 700;
+        color: #fab515;
+    }
+    .elementor-widget-text-editor strong {
+        color: #9a9a9a;
+    }
+}
