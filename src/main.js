@@ -271,10 +271,5 @@ import {FooterWidgetToggleMobile} from './footer-widget-sidebar'
 	jQuery(window).on('scroll', function() {
 		AnchorActiveMenuItemScroll();
 	});
-
-  jQuery(window).on('load',function(){
-    console.log("check on load");
-  });
  
-
 })(window, jQuery)

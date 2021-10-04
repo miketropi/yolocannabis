@@ -1,0 +1,165 @@
+body.woocommerce-checkout{
+    width: 100%;
+    position: relative;
+    background-image: url(../../images/single-merch-page-bg.jpg);
+    background-position: top center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    a.post-edit-link{
+        display: none;
+    }
+    #site-content{
+        .section-inner{
+            max-width: 100%;
+            width: 100%;
+            overflow: hidden;
+            .entry-header{
+                padding-top: 260px;
+                .entry-title{
+                    max-width: 1320px;
+                    padding-left: 10px;
+                    padding-right: 10px;
+                    margin-left: auto;
+                    margin-right: auto;
+                    font-family: $main-font;
+                    font-size: 50px;
+                    font-weight: 700;
+                    line-height: 38px;
+                    color: $main-color;
+                }
+            }
+            #post-inner{
+                .entry-content{
+                    max-width: 1320px;
+                    padding-left: 10px;
+                    padding-right: 10px;
+                    margin-left: auto;
+                    margin-right: auto;
+                }
+            }
+        }
+    }
+
+    .woocommerce-form-coupon-toggle{
+        width: 100%;
+        .woocommerce-info{
+            border-top-color: $main-color;
+            font-family: $main-font;
+            &::before{
+                color: $main-color;
+            }
+            a{
+                color: $secondary-color;
+            }
+        }
+    }
+
+    form.woocommerce-checkout{
+        background-color: $main-color-2;
+        border: 2px solid $secondary-color;
+        border-radius: 5px;
+        box-sizing: border-box;
+        padding: 25px;
+        .woocommerce-shipping-fields{
+            > #ship-to-different-address{
+                margin-top: 0;
+                font-family: $main-font;
+                .shipping_address{
+                    .form-row {
+                        &:not(:last-child){
+                            margin-bottom: 10px;
+                        }
+                        .selection, .select2-selection{
+                            display: flex;
+                            align-items: center;
+                            align-content: center;
+                        }
+                        label, .select2-container--default .select2-selection--single .select2-selection__rendered, textarea, input, select, textarea::placeholder, input::placeholder{
+                            font-size: 16px;
+                            line-height: 26px;
+                            letter-spacing: 0;
+                            font-weight: 400;
+                            font-family: $main-font;
+                            color: #fff;
+                        }
+                        label{
+                            font-weight: 500;
+                            margin-bottom: 5px;
+                        }
+                        input, select, textarea{
+                            background-color: #080913;
+                            padding: 0px 15px;
+                            border: none;
+                            width: 100%;
+                            border-radius: 10px;
+                            height: 45px;
+                        }
+                    }
+                }
+            }
+        }
+        #order_review_heading{
+            font-family: $main-font;
+        }
+        .woocommerce-checkout-review-order{
+            tr{
+                th, td, strong, label{
+                    font-family: $main-font;
+                }
+            }
+            .woocommerce-checkout-payment{
+                background-color: transparent !important;
+                ul.wc_payment_methods{
+                    li.wc_payment_method{
+                        input.input-radio{
+                            float: left;
+                            margin: 8px 15px 0 0 !important;
+                            line-height: 30px;
+                        }
+                        .payment_box {
+                            font-family: $main-font;
+                        }
+                    }
+                }
+            }
+        }
+        .woocommerce-billing-fields{
+            > h3{
+                margin: 0 0 25px 0;
+                font-family: $main-font;
+            }
+            .woocommerce-billing-fields__field-wrapper{
+                .form-row {
+                    &:not(:last-child){
+                        margin-bottom: 10px;
+                    }
+                    .selection, .select2-selection{
+                        display: flex;
+                        align-items: center;
+                        align-content: center;
+                    }
+                    label, .select2-container--default .select2-selection--single .select2-selection__rendered, textarea, input, select, textarea::placeholder, input::placeholder{
+                        font-size: 16px;
+                        line-height: 26px;
+                        letter-spacing: 0;
+                        font-weight: 400;
+                        font-family: $main-font;
+                        color: #fff;
+                    }
+                    label{
+                        font-weight: 500;
+                        margin-bottom: 5px;
+                    }
+                    input, select, textarea{
+                        background-color: #080913;
+                        padding: 0px 15px;
+                        border: none;
+                        width: 100%;
+                        border-radius: 10px;
+                        height: 45px;
+                    }
+                }
+            }
+        }
+    }
+}
