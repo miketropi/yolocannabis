@@ -59,7 +59,8 @@ body.woocommerce-checkout{
         border: 2px solid $secondary-color;
         border-radius: 5px;
         box-sizing: border-box;
-        padding: 25px;
+        padding: 24px;
+
         .woocommerce-shipping-fields{
             > #ship-to-different-address{
                 margin-top: 0;
@@ -98,6 +99,7 @@ body.woocommerce-checkout{
                 }
             }
         }
+
         #order_review_heading{
             font-family: $main-font;
         }
