@@ -1,6 +1,5 @@
 body.woocommerce-cart{
     width: 100%;
-    position: relative;
     background-image: url(../../images/single-merch-page-bg.jpg);
     background-position: top center;
     background-repeat: no-repeat;
@@ -18,6 +17,9 @@ body.woocommerce-cart{
                 @media (max-width: $break-sm){
                     padding-top: 200px;
                 }
+                @media (max-width: $break-xs){
+                    padding-top: 160px;
+                }
                 .entry-title{
                     max-width: 1320px;
                     padding-left: 10px;
@@ -29,6 +31,13 @@ body.woocommerce-cart{
                     font-weight: 700;
                     line-height: 38px;
                     color: $main-color;
+                    @media (max-width: $break-sm){
+                        font-size: 40px;
+                    }
+                    @media (max-width: $break-xs){
+                        font-size: 36px;
+                        line-height: 36px;
+                    }
                 }
             }
             #post-inner{
@@ -53,6 +62,8 @@ form.woocommerce-cart-form{
             border: none;
             background-color: $main-color-2;
             margin: 0;
+            border: 1px solid $secondary-color;
+            border-radius: 5px;
             td{
                 @media (max-width: $break-sm){
                     display: flex;
@@ -76,7 +87,7 @@ form.woocommerce-cart-form{
                     margin-bottom: 25px;
                     padding-bottom: 25px;
                     padding-left: 100px;
-                    min-height: 136px;
+                    min-height: 135px;
                     border-bottom: 1px solid $secondary-color;
                     position: relative;
                 }
@@ -210,8 +221,8 @@ form.woocommerce-cart-form{
                         padding-bottom: 15px;
                         > button.button{
                             font-size: 18px;
-                            font-weight: 700;
-                            font-family: $main-font;
+                            font-weight: 500;
+                            font-family: $main-font-2;
                             border-radius: 10px;
                             height: 45px;
                             padding: 0 25px;
@@ -255,11 +266,11 @@ form.woocommerce-cart-form{
                 }
             }
             button.button{
-                font-family: $main-font;
+                font-family: $main-font-2;
                 height: 45px;
                 padding: 0 25px;
                 font-size: 18px;
-                font-weight: 700;
+                font-weight: 500;
                 background-color: $main-color;
                 border-radius: 10px;
                 @media (max-width: $break-xs){
@@ -293,7 +304,7 @@ form.woocommerce-cart-form{
             font-family: $main-font;
             font-size: 30px;
             font-weight: 700;
-            line-height: 38px;
+            line-height: 37px;
             color: $main-color;
         }
         table.shop_table {
@@ -384,7 +395,7 @@ form.woocommerce-cart-form{
             a.checkout-button{
                 font-size: 18px;
                 line-height: 28px;
-                font-weight: 700;
+                font-weight: 500;
                 font-family: $main-font;
                 background-color: transparent;
                 color: $main-color !important;
@@ -395,6 +406,10 @@ form.woocommerce-cart-form{
                 &:hover{
                     background-color: $main-color;
                     color: #fff !important;
+                }
+                @media (max-width: $break-xs){
+                    width: 100%;
+                    text-align: center;
                 }
             }
         }
