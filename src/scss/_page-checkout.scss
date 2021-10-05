@@ -53,6 +53,74 @@ body.woocommerce-checkout{
         }
     }
 
+    .woocommerce-error{
+        &::before{
+            top: 20px;
+        }
+    }
+
+    .checkout_coupon.woocommerce-form-coupon{
+        border-color: $secondary-color;
+        background-color: $main-color-2;
+        border-width: 2px;
+        box-sizing: border-box;
+        > p{
+            font-family: $main-font;
+        }
+        .form-row {
+            width: calc(50% - 7.5px);
+            @media (max-width: 540px){
+                width: 100%;
+                text-align: center;
+            }
+            &.form-row-first{
+                input{
+                    background-color: #080913;
+                    padding: 0px 15px;
+                    border: none;
+                    width: 100%;
+                    border-radius: 10px;
+                    height: 40px;
+                }
+                input, input::placeholder{
+                    font-size: 16px;
+                    line-height: 26px;
+                    letter-spacing: 0;
+                    font-weight: 400;
+                    font-family: "Exo 2",Sans-serif;
+                    color: #fff;
+                }
+            }
+            &.form-row-last{
+                button{
+                    font-size: 18px;
+                    line-height: 28px;
+                    font-weight: 500;
+                    font-family: $main-font-2;
+                    background-color: transparent;
+                    color:$main-color !important;
+                    border: 2px solid $main-color;
+                    border-radius: 10px;
+                    box-sizing: border-box;
+                    padding: 4px 30px;
+                    max-width: 200px;
+                    &:hover{
+                        background-color: $main-color;
+                        color: #fff !important;
+                    }
+                    &:hover, &:focus{
+                        text-decoration: none;
+                    }
+                    @media (max-width: $break-xs){
+                        max-width: 100%;
+                        margin-top: 10px;
+                        width: 100%;
+                    }
+                }
+            }
+        }
+    }
+
     .woocommerce-form-coupon-toggle{
         width: 100%;
         .woocommerce-info{
@@ -76,7 +144,11 @@ body.woocommerce-checkout{
         @media (max-width: $break-xs){
             padding: 20px;
         }
+        @media (max-width: 374px){
+            padding: 20px 11px;
+        }
         .woocommerce-shipping-fields{
+            padding-top: 15px;
             .shipping_address{
                 .form-row {
                     &.form-row-first, &.form-row-last{
@@ -116,14 +188,17 @@ body.woocommerce-checkout{
                         border: none;
                         width: 100%;
                         border-radius: 10px;
-                        height: 45px;
+                        height: 40px;
                     }
                 }
             }
             > #ship-to-different-address{
                 margin-top: 0;
                 font-family: $main-font;
-
+                cursor: pointer;
+                > label{
+                    cursor: pointer;
+                }
             }
             @media (max-width: $break-sm){
                 margin-top: 30px;
@@ -157,7 +232,7 @@ body.woocommerce-checkout{
                     font-family: $main-font;
                     @media (max-width: $break-xs){
                         font-size: 14px;
-                        line-height: 23px;
+                        line-height: 24px;
                     }
                 }
             }
@@ -167,14 +242,86 @@ body.woocommerce-checkout{
             font-family: $main-font;
         }
         .woocommerce-checkout-review-order{
+            .woocommerce-checkout-review-order-table{
+                border: 1px solid $secondary-color;
+                border-radius: 5px;
+                box-sizing: border-box;
+            }
+            tfoot{
+                tr, th, tr{
+                    border-color: $secondary-color;
+                    box-sizing: border-box;
+                }
+            }
+            tr, th, tr, td{
+                border-color: $secondary-color;
+                box-sizing: border-box;
+            }
             tr{
                 th, td, strong, label{
                     font-family: $main-font;
+                }
+                th{
+                    font-weight: 600;
+                    &.product-total{
+                        @media (max-width: $break-xs){
+                            max-width: 90px;
+                            width: 90px;
+                        }
+                    }
+                    @media (max-width: $break-xs){
+                        font-size: 14px;
+                        line-height: 22px;
+                    }
                 }
                 td{
                     font-size: 16px;
                     line-height: 26px;
                     font-weight: 400;
+                    &.product-name{
+                        .variation{
+                            width: 100%;
+                            margin: 10px 0 0 0;
+                            @media (max-width: $break-sm){
+                                margin-bottom: 10px;
+                            }
+                            dt{
+                                width: 100px;
+                                float: left;
+                                box-sizing: border-box;
+                                margin: 0;
+                                @media (max-width: $break-xs){
+                                    width: 80px;
+                                }
+                            }
+                            dd{
+                                margin-left: 100px;
+                                float: inherit;
+                                width: calc(100% - 100px);
+                                text-align: left;
+                                box-sizing: border-box;
+                                @media (max-width: $break-xs){
+                                    margin-left: 80px;
+                                    width: calc(100% - 80px);
+                                }
+                            }
+                            dd, dt{
+                                font-size: 14px;
+                                line-height: 24px;
+                                font-weight: 400;
+                                font-family: $main-font;
+                                letter-spacing: 0;
+                                padding: 0;
+                                min-height: 24px;
+                                text-align: left;
+                                @media (max-width: $break-xs){
+                                    font-size: 13px;
+                                    line-height: 22px;
+                                    min-height: 22px;
+                                }
+                            }
+                        }
+                    }
                     @media (max-width: $break-xs){
                         font-size: 14px;
                         line-height: 24px;
@@ -182,6 +329,14 @@ body.woocommerce-checkout{
                 }
                 &.cart-subtotal, &.woocommerce-shipping-totals.shipping, &.order-total{
                     color: $main-color;
+                }
+                &.woocommerce-shipping-totals.shipping{
+                    ul{
+                        .shipping_method_0_flat_rate3{
+                            font-size: 14px;
+                            line-height: 24px;
+                        }
+                    }
                 }
               
             }
@@ -224,6 +379,9 @@ body.woocommerce-checkout{
                         &:hover{
                             background-color: $main-color;
                             color: #fff !important;
+                        }
+                        &:focus, &:hover{
+                            text-decoration: none;
                         }
                     }
                 }
@@ -273,7 +431,7 @@ body.woocommerce-checkout{
                         border: none;
                         width: 100%;
                         border-radius: 10px;
-                        height: 45px;
+                        height: 40px;
                     }
                 }
             }
