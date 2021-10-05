@@ -22,6 +22,26 @@ select {
     
 }
 
+.admin-bar {
+    .select2-container--default .select2-dropdown {
+        &--above {
+            margin-top: 32px;
+        }
+        &--below { 
+            margin-top: 32px;
+        }
+    }
+    @media( max-width: 782.98px ) {
+        .select2-container--default .select2-dropdown {
+            &--above {
+                margin-top: 46px;
+            }
+            &--below { 
+                margin-top: 46px;
+            }
+        }
+    }
+}
 .select2-container {
     &--default {
         font-family: "Exo 2",Sans-serif;
@@ -61,11 +81,9 @@ select {
             .select2-results__option {
                 margin: 0;
                 padding: 5px 20px;
-                &[data-selected=true] {
-                    background-color: #442bd7;
-                }
+                &[data-selected=true],
                 &--highlighted[data-selected] {
-                    background-color: #11132c;
+                    background-color: #442bd7;
                 }
             }
         }

@@ -57,25 +57,33 @@ if ( ! empty( $tax ) && ! is_wp_error( $tax ) ) {
                 <?php if ( have_posts() ) : ?>
                     <div class="woo-products-list">
                         <?php while ( have_posts() ) : the_post(); ?>
-                            <div class="woo-product-item">
-                                <div class="woo-product-thumb">
-                                    <?php if ( has_post_thumbnail() ) : ?>
-                                        <a href="<?php the_permalink(); ?>">
-                                            <?php the_post_thumbnail(); ?>
-                                        </a>
-                                    <?php endif; ?>
-                                </div>
-                                <div class="woo-product-info">
-                                    <h2 class="woo-product-title">
-                                        <a href="<?php the_permalink(); ?>">
-                                            <?php the_title(); ?>
-                                        </a>
-                                    </h2>
+                            <div class="woo-product-item-wrap">
+                                <div class="woo-product-item">
+                                    <div class="woo-product-thumb">
+                                        <?php if ( has_post_thumbnail() ) : ?>
+                                            <a href="<?php the_permalink(); ?>">
+                                                <?php the_post_thumbnail(); ?>
+                                            </a>
+                                        <?php endif; ?>
+
+                                        <?php do_action( 'woocommerce_single_add_to_cart'); ?>
+                                    </div>
+                                    <div class="woo-product-info">
+                                        <h2 class="woo-product-title">
+                                            <a href="<?php the_permalink(); ?>">
+                                                <?php the_title(); ?>
+                                            </a>
+                                        </h2>
+                                        
+                                        <div class="woo-variation-add-to-cart">
+                                            <a href="<?php the_permalink(); ?>" class="woo-variation-add-to-cart button alt">Add to cart</a>
+                                        </div>
+                                        
+                                        <?php //do_action( 'woocommerce_loop_add_to_cart'); ?>
+                                        
+                                    </div>
                                     
-                                    <?php do_action( 'woocommerce_loop_add_to_cart'); ?>
-                                    <?php //do_action( 'woocommerce_single_add_to_cart'); ?>
                                 </div>
-                                
                             </div>
                         <?php endwhile; ?>
                     </div>

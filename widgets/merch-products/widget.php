@@ -94,23 +94,29 @@ class Yolo_Merch_Products extends Widget_Base {
                                     echo '<div class="woo-products-list">';
                                         while ( $wp_query->have_posts() ) : $wp_query->the_post();
                                             ?>
-                                                <div class="woo-product-item">
-                                                    <div class="woo-product-thumb">
-                                                        <?php if ( has_post_thumbnail() ) : ?>
-                                                            <a href="<?php the_permalink(); ?>">
-                                                                <?php the_post_thumbnail(); ?>
-                                                            </a>
-                                                        <?php endif; ?>
-                                                    </div>
-                                                    <div class="woo-product-info">
-                                                        <h2 class="woo-product-title">
-                                                            <a href="<?php the_permalink(); ?>">
-                                                                <?php the_title(); ?>
-                                                            </a>
-                                                        </h2>
+                                                <div class="woo-product-item-wrap">
+                                                    <div class="woo-product-item">
+                                                        <div class="woo-product-thumb">
+                                                            <?php if ( has_post_thumbnail() ) : ?>
+                                                                <a href="<?php the_permalink(); ?>">
+                                                                    <?php the_post_thumbnail(); ?>
+                                                                </a>
+                                                            <?php endif; ?>
 
-                                                        <?php do_action( 'woocommerce_loop_add_to_cart'); ?>
-                                                        <?php //do_action( 'woocommerce_single_add_to_cart'); ?>
+                                                            <?php do_action( 'woocommerce_single_add_to_cart'); ?>
+                                                        </div>
+                                                        <div class="woo-product-info">
+                                                            <h2 class="woo-product-title">
+                                                                <a href="<?php the_permalink(); ?>">
+                                                                    <?php the_title(); ?>
+                                                                </a>
+                                                            </h2>
+                                                            
+                                                            <div class="woo-variation-add-to-cart">
+                                                                <a href="<?php the_permalink(); ?>" class="woo-variation-add-to-cart button alt">Add to cart</a>
+                                                            </div>
+                                                            <?php //do_action( 'woocommerce_loop_add_to_cart'); ?>
+                                                        </div>
                                                     </div>
                                                 </div>
                                             <?php
@@ -145,23 +151,29 @@ class Yolo_Merch_Products extends Widget_Base {
                             echo '<div class="woo-products-list">';
                                 while ( $wp_query->have_posts() ) : $wp_query->the_post();
                                     ?>
-                                        <div class="woo-product-item">
-                                            <div class="woo-product-thumb">
-                                                <?php if ( has_post_thumbnail() ) : ?>
-                                                    <a href="<?php the_permalink(); ?>">
-                                                        <?php the_post_thumbnail(); ?>
-                                                    </a>
-                                                <?php endif; ?>
-                                            </div>
-                                            <div class="woo-product-info">
-                                                <h2 class="woo-product-title">
-                                                    <a href="<?php the_permalink(); ?>">
-                                                        <?php the_title(); ?>
-                                                    </a>
-                                                </h2>
-                                                
-                                                <?php do_action( 'woocommerce_loop_add_to_cart'); ?>
-                                                <?php //do_action( 'woocommerce_single_add_to_cart'); ?>
+                                        <div class="woo-product-item-wrap">
+                                            <div class="woo-product-item">
+                                                <div class="woo-product-thumb">
+                                                    <?php if ( has_post_thumbnail() ) : ?>
+                                                        <a href="<?php the_permalink(); ?>">
+                                                            <?php the_post_thumbnail(); ?>
+                                                        </a>
+                                                    <?php endif; ?>
+
+                                                    <?php do_action( 'woocommerce_single_add_to_cart'); ?>
+                                                </div>
+                                                <div class="woo-product-info">
+                                                    <h2 class="woo-product-title">
+                                                        <a href="<?php the_permalink(); ?>">
+                                                            <?php the_title(); ?>
+                                                        </a>
+                                                    </h2>
+                                                    
+                                                    <div class="woo-variation-add-to-cart">
+                                                        <a href="<?php the_permalink(); ?>" class="woo-variation-add-to-cart button alt">Add to cart</a>
+                                                    </div>
+                                                    <?php //do_action( 'woocommerce_single_add_to_cart'); ?>
+                                                </div>
                                             </div>
                                         </div>
                                     <?php
