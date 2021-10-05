@@ -103,7 +103,10 @@ class Yolo_Merch_Products extends Widget_Base {
                                                                 </a>
                                                             <?php endif; ?>
 
-                                                            <?php do_action( 'woocommerce_single_add_to_cart'); ?>
+                                                            <div class="woo-quick-shop-form">
+                                                                <a class="close" href="#">Close</a>
+                                                                <?php do_action( 'woocommerce_single_add_to_cart'); ?>
+                                                            </div>
                                                         </div>
                                                         <div class="woo-product-info">
                                                             <h2 class="woo-product-title">
@@ -112,10 +115,7 @@ class Yolo_Merch_Products extends Widget_Base {
                                                                 </a>
                                                             </h2>
                                                             
-                                                            <div class="woo-variation-add-to-cart">
-                                                                <a href="<?php the_permalink(); ?>" class="woo-variation-add-to-cart button alt">Add to cart</a>
-                                                            </div>
-                                                            <?php //do_action( 'woocommerce_loop_add_to_cart'); ?>
+                                                            <?php do_action( 'woocommerce_loop_add_to_cart'); ?>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -160,7 +160,10 @@ class Yolo_Merch_Products extends Widget_Base {
                                                         </a>
                                                     <?php endif; ?>
 
-                                                    <?php do_action( 'woocommerce_single_add_to_cart'); ?>
+                                                    <div class="woo-quick-shop-form">
+                                                        <a class="close" href="#">Close</a>
+                                                        <?php do_action( 'woocommerce_single_add_to_cart'); ?>
+                                                    </div>
                                                 </div>
                                                 <div class="woo-product-info">
                                                     <h2 class="woo-product-title">
@@ -169,10 +172,7 @@ class Yolo_Merch_Products extends Widget_Base {
                                                         </a>
                                                     </h2>
                                                     
-                                                    <div class="woo-variation-add-to-cart">
-                                                        <a href="<?php the_permalink(); ?>" class="woo-variation-add-to-cart button alt">Add to cart</a>
-                                                    </div>
-                                                    <?php //do_action( 'woocommerce_single_add_to_cart'); ?>
+                                                    <?php do_action( 'woocommerce_loop_add_to_cart'); ?>
                                                 </div>
                                             </div>
                                         </div>

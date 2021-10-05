@@ -281,19 +281,17 @@ import {FooterWidgetToggleMobile} from './footer-widget-sidebar'
    * VariationAddToCart
    */
    function VariationAddToCart() {
-    $('.woo-product-item').on('select2:open', function (e) {
-      $(this).addClass('current');
-    });
 
-    $('.woo-product-item').on('select2:close', function (e) {
-      $(this).removeClass('current');
-    });
-
-    $('.woo-variation-add-to-cart').on('click', function(event) {
+    $('.woo-product-item .add_to_cart_button').on('click', function(event) {
       event.preventDefault();
 
-      $(this).parents('.woo-product-item').find('.single_add_to_cart_button').click();
+      $(this).parents('.woo-product-item').addClass('form-cart-enable');
+    });
+
+    $('.woo-product-item .close').on('click', function(event) {
+      event.preventDefault();
       
+      $(this).parents('.woo-product-item').removeClass('form-cart-enable');
     });
     
   }
