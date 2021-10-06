@@ -184,20 +184,23 @@
 
 .elementor-location-footer {
   .footer-top {
+    .elementor-widget-text-editor {
+      max-width: 400px;
+    }
     .elementor-widget-wp-widget-nav_menu {
-      text-align: right;
       ul.menu {
         list-style: none;
         margin: 0;
         padding: 0;
+        column-count: 2;
         li {
-          display: inline-block;
+          display: block;
           font-family: "Exo 2", Sans-serif;
           font-size: 16px;
           font-weight: 600;
           line-height: 26px;
           color: $main-color;
-          margin: 0 50px 0 0;
+          margin: 0 0 15px;
           &:last-child {
             margin-right: 0;
           }
