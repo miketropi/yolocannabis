@@ -1027,10 +1027,19 @@
                 .product-header div.summary .woocommerce-tabs ul.tabs li a {
                     font-size: 20px;
                 }
-                .best-sells ul.products {
+                /*.best-sells ul.products {
                     margin: 0 -15px;
                     li.product {
                         padding: 0 15px;
+                    }
+                }*/
+                .best-sells .woo-products-list {
+                    margin: 0 -15px;
+                    .woo-product-item-wrap {
+                        padding: 0 15px;
+                    }
+                    .woo-product-item .woo-product-thumb .woo-quick-shop-form .variations_form .variations td.value {
+                        padding: 8px 0;
                     }
                 }
             }
@@ -1056,10 +1065,13 @@
                         }
                     }
                 }
-                .best-sells ul.products li.product {
+                /*.best-sells ul.products li.product {
                     .woocommerce-loop-product__thumb {
                         max-width: 100%;
                     }
+                }*/
+                .best-sells .woo-products-list .woo-product-item-wrap {
+                    width: 50%;
                 }
             }
 
@@ -1078,11 +1090,27 @@
                     >h2 {
                         font-size: 36px;
                     }
-                    ul.products li.product {
+                    /*ul.products li.product {
+                        width: 100%;
+                    }*/
+                    .woo-products-list .woo-product-item-wrap {
                         width: 100%;
                     }
                 } 
             }
+
+            @media( max-width: $break-xs - 0.02 ) {
+                .best-sells .woo-products-list .woo-product-item .woo-product-thumb .woo-quick-shop-form .variations_form .variations td.value {
+                    padding: 8px 0;
+                    .select2-container .select2-selection--single {
+                        height: 34px;
+                        .select2-selection__rendered {
+                            line-height: 34px;
+                        }
+                    }
+                }
+            }
+            
         }
         
     }
