@@ -252,7 +252,7 @@
   
   @media(max-width: $break-tl - 0.02) {
     .footer-top {
-      .elementor-widget-text-editor {
+      /*.elementor-widget-text-editor {
         max-width: 420px;
         margin: 0 auto;
       }
@@ -263,7 +263,7 @@
         }
       }
 
-      /*.elementor-widget-wp-widget-nav_menu {
+      .elementor-widget-wp-widget-nav_menu {
         &:last-child {
           padding-right: 20px;
         }
@@ -273,7 +273,12 @@
 
   @media(max-width: $break-sm - 0.02) {
     .footer-top {
-      
+      .elementor-widget-text-editor {
+        margin: 0 auto;
+      }
+      .elementor-widget-wp-widget-nav_menu {
+        text-align: center;
+      }
       /*.elementor-widget-wp-widget-nav_menu {
         margin-bottom: 15px !important;
       }*/
