@@ -198,6 +198,7 @@
                         width: 100%;
                     }
                     .button {
+                        position: relative;
                         display: inline-block;
                         width: 100%;
                         font-family: "Ubuntu",Sans-serif;
@@ -211,10 +212,23 @@
                         padding: 6px 15px;
                         border-radius: 0;
                         &.loading::after {
+                            font-family: WooCommerce;
+                            content: "\e01c";
+                            vertical-align: top;
+                            font-weight: 400;
+                            position: absolute;
                             top: 14px;
                             right: 15px;
                             line-height: 1;
+                            -webkit-animation: spin 2s linear infinite;
+                            animation: spin 2s linear infinite;
                         }
+                        &.added::after {
+                            font-family: WooCommerce;
+                            content: "\e017";
+                            margin-left: .53em;
+                            vertical-align: bottom;
+                          }
                         &.added,
                         &.loading {
                             width: 50%;

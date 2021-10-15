@@ -92,8 +92,8 @@ if ( $bestsells->post_count != 0 ) : ?>
 
         <?php
             // don't display the button if there are not enough posts
-            if (  $bestsells->max_num_pages > 1 )
-                echo '<div class="products_loadmore"><a href="#">Load more</a></div>'; // you can use <a> as well
+            /*if (  $bestsells->max_num_pages > 1 )
+                echo '<div class="products_loadmore"><a href="#">Load more</a></div>'; // you can use <a> as well*/
         ?>
 
 	</section>

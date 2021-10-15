@@ -4,7 +4,7 @@
 	 * @param $ The jQuery alias
 	 */
 	var MerchProductsHandler = function( $scope, $ ) {
-		console.log($scope);
+		//console.log($scope);
         var nav = $scope.find('.tabs-nav'),
             panel = $scope.find('.tabs-panel');
 
